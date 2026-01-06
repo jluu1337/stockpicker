@@ -22,7 +22,7 @@ making any trades. The author is not a licensed financial advisor.
 
 
 def format_pick_html(pick: dict, index: int) -> str:
-    """Format a single pick as HTML."""
+    """Format a single pick as HTML with position sizing."""
     symbol = pick.get("symbol", "N/A")
     last = pick.get("last", 0)
     pct_change = pick.get("pct_change", 0)
@@ -44,11 +44,22 @@ def format_pick_html(pick: dict, index: int) -> str:
     t3 = levels.get("target_3") if levels else None
     explanation = levels.get("explanation", "") if levels else ""
     risk_flags = levels.get("risk_flags", []) if levels else []
+    
+    # Position sizing data
+    position = pick.get("position", {})
+    shares = position.get("shares", 0) if position else 0
+    total_risk = position.get("total_risk", 0) if position else 0
+    profit_t1 = position.get("profit_t1", 0) if position else 0
+    profit_t2 = position.get("profit_t2", 0) if position else 0
+    profit_t3 = position.get("profit_t3") if position else None
+    meets_goal = position.get("meets_daily_goal", False) if position else False
+    capital = position.get("capital", 0) if position else 0
 
     # Color coding
     change_color = "#22c55e" if pct_change >= 0 else "#ef4444"
     vwap_status = "Above" if above_vwap else "Below"
     vwap_color = "#22c55e" if above_vwap else "#ef4444"
+    goal_badge = '<span style="background: #22c55e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px; margin-left: 8px;">✓ MEETS GOAL</span>' if meets_goal else ""
 
     # Format buy area
     buy_area_str = (
@@ -57,16 +68,18 @@ def format_pick_html(pick: dict, index: int) -> str:
         else "N/A"
     )
 
-    # Format targets
-    targets_str = ""
+    # Format targets with dollar amounts
+    targets_html = ""
     if t1:
-        targets_str += f"T1: ${t1:.2f}"
+        targets_html += f'<div><strong>T1:</strong> ${t1:.2f} <span style="color: #22c55e;">(+${profit_t1:.2f})</span></div>'
     if t2:
-        targets_str += f" | T2: ${t2:.2f}"
-    if t3:
-        targets_str += f" | T3: ${t3:.2f}"
-    if not targets_str:
-        targets_str = "N/A"
+        targets_html += f'<div><strong>T2:</strong> ${t2:.2f} <span style="color: #22c55e;">(+${profit_t2:.2f})</span></div>'
+    if t3 and profit_t3:
+        targets_html += f'<div><strong>T3:</strong> ${t3:.2f} <span style="color: #22c55e;">(+${profit_t3:.2f})</span></div>'
+    elif t3:
+        targets_html += f'<div><strong>T3:</strong> ${t3:.2f}</div>'
+    if not targets_html:
+        targets_html = "<div>N/A</div>"
 
     # Risk flags badges
     flags_html = ""
@@ -77,6 +90,22 @@ def format_pick_html(pick: dict, index: int) -> str:
             for flag in risk_flags
         )
         flags_html = f'<div style="margin-top: 8px;">{flag_badges}</div>'
+    
+    # Position sizing section
+    position_html = ""
+    if position and shares > 0:
+        position_html = f"""
+        <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 6px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 600; color: #065f46; margin-bottom: 8px;">
+                📐 Position Sizing (${capital:,.0f} capital) {goal_badge}
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 13px;">
+                <div><strong>Shares:</strong> {shares}</div>
+                <div><strong>Risk:</strong> <span style="color: #dc2626;">${total_risk:.2f}</span></div>
+                <div><strong>T1 Profit:</strong> <span style="color: #059669;">${profit_t1:.2f}</span></div>
+            </div>
+        </div>
+        """
 
     return f"""
     <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 16px; background: #fafafa;">
@@ -110,12 +139,14 @@ def format_pick_html(pick: dict, index: int) -> str:
         
         <div style="background: #f3f4f6; border-radius: 6px; padding: 12px; margin-top: 12px;">
             <div style="font-weight: 600; color: #374151; margin-bottom: 8px;">Trade Levels</div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 13px;">
-                <div><strong style="color: #059669;">BUY AREA:</strong> {buy_area_str}</div>
-                <div><strong style="color: #dc2626;">STOP:</strong> {"${:.2f}".format(stop) if stop else "N/A"}</div>
-                <div><strong style="color: #2563eb;">TARGETS:</strong> {targets_str}</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 8px; font-size: 13px;">
+                <div><strong style="color: #059669;">BUY AREA:</strong><br>{buy_area_str}</div>
+                <div><strong style="color: #dc2626;">STOP:</strong><br>{"${:.2f}".format(stop) if stop else "N/A"}</div>
+                <div><strong style="color: #2563eb;">TARGETS:</strong><br>{targets_html}</div>
             </div>
         </div>
+        
+        {position_html}
         
         <div style="font-size: 12px; color: #6b7280; margin-top: 10px; font-style: italic;">
             {explanation}

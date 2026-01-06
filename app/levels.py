@@ -4,6 +4,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Literal
 
+from app.config import get_settings
 from app.scanner import Candidate
 
 logger = logging.getLogger(__name__)
@@ -47,6 +48,112 @@ class TradeLevels:
             "explanation": self.explanation,
             "risk_flags": self.risk_flags,
         }
+
+
+@dataclass
+class PositionSizing:
+    """Position sizing and P&L calculations for a trade."""
+
+    shares: int
+    entry_price: float
+    risk_per_share: float
+    total_risk: float
+    profit_t1: float
+    profit_t2: float
+    profit_t3: float | None
+    meets_daily_goal: bool
+    capital: float
+    max_risk_pct: float
+
+    def to_dict(self) -> dict:
+        """Convert to dictionary for JSON serialization."""
+        return {
+            "shares": self.shares,
+            "entry_price": round(self.entry_price, 2),
+            "risk_per_share": round(self.risk_per_share, 2),
+            "total_risk": round(self.total_risk, 2),
+            "profit_t1": round(self.profit_t1, 2),
+            "profit_t2": round(self.profit_t2, 2),
+            "profit_t3": round(self.profit_t3, 2) if self.profit_t3 else None,
+            "meets_daily_goal": self.meets_daily_goal,
+            "capital": round(self.capital, 2),
+            "max_risk_pct": round(self.max_risk_pct, 2),
+        }
+
+
+def compute_position_sizing(
+    levels: TradeLevels,
+    capital: float | None = None,
+    max_risk_pct: float | None = None,
+    daily_goal: float | None = None,
+) -> PositionSizing | None:
+    """
+    Compute position sizing and dollar P&L for a trade.
+
+    Args:
+        levels: TradeLevels with buy_area, stop, and targets
+        capital: Trading capital (default from settings)
+        max_risk_pct: Max risk as % of capital (default from settings)
+        daily_goal: Daily profit goal (default from settings)
+
+    Returns:
+        PositionSizing object or None if no valid entry
+    """
+    settings = get_settings()
+    capital = capital or settings.trading_capital
+    max_risk_pct = max_risk_pct or settings.max_risk_pct
+    daily_goal = daily_goal or settings.daily_profit_goal
+
+    # Need valid buy area and stop
+    if not levels.buy_area or not levels.stop:
+        return None
+
+    # Entry is midpoint of buy area
+    entry_price = (levels.buy_area[0] + levels.buy_area[1]) / 2
+
+    # Risk per share
+    risk_per_share = entry_price - levels.stop
+    if risk_per_share <= 0:
+        return None
+
+    # Max risk in dollars
+    max_risk_dollars = capital * (max_risk_pct / 100)
+
+    # Position size (shares)
+    shares = int(max_risk_dollars / risk_per_share)
+    if shares <= 0:
+        return None
+
+    # Ensure we don't exceed capital
+    max_shares_by_capital = int(capital / entry_price)
+    shares = min(shares, max_shares_by_capital)
+
+    if shares <= 0:
+        return None
+
+    # Actual risk
+    total_risk = shares * risk_per_share
+
+    # Profit at each target
+    profit_t1 = shares * (levels.target_1 - entry_price) if levels.target_1 else 0
+    profit_t2 = shares * (levels.target_2 - entry_price) if levels.target_2 else 0
+    profit_t3 = shares * (levels.target_3 - entry_price) if levels.target_3 else None
+
+    # Check if T1 meets daily goal
+    meets_daily_goal = profit_t1 >= daily_goal
+
+    return PositionSizing(
+        shares=shares,
+        entry_price=entry_price,
+        risk_per_share=risk_per_share,
+        total_risk=total_risk,
+        profit_t1=profit_t1,
+        profit_t2=profit_t2,
+        profit_t3=profit_t3,
+        meets_daily_goal=meets_daily_goal,
+        capital=capital,
+        max_risk_pct=max_risk_pct,
+    )
 
 
 def compute_risk_flags(candidate: Candidate) -> list[str]:
@@ -393,35 +500,157 @@ def compute_levels(candidate: Candidate) -> TradeLevels:
         return compute_fallback_levels(candidate, atr)
 
 
+@dataclass
+class PositionSize:
+    """Position sizing data for a trade setup."""
+    
+    capital: float              # Trading capital
+    shares: int                 # Number of shares to buy
+    entry_price: float          # Entry price (midpoint of buy area)
+    stop_price: float           # Stop loss price
+    risk_per_share: float       # Dollar risk per share
+    total_risk: float           # Total dollar risk
+    max_risk_percent: float     # Risk as % of capital
+    profit_t1: float            # Profit at T1 in dollars
+    profit_t2: float            # Profit at T2 in dollars
+    profit_t3: float | None     # Profit at T3 in dollars (if T3 exists)
+    daily_goal: float           # Daily profit goal
+    meets_daily_goal: bool      # True if T1 profit >= daily goal
+    
+    def to_dict(self) -> dict:
+        """Convert to dictionary for JSON serialization."""
+        return {
+            "capital": self.capital,
+            "shares": self.shares,
+            "entry_price": round(self.entry_price, 2),
+            "stop_price": round(self.stop_price, 2),
+            "risk_per_share": round(self.risk_per_share, 2),
+            "total_risk": round(self.total_risk, 2),
+            "max_risk_percent": round(self.max_risk_percent, 2),
+            "profit_t1": round(self.profit_t1, 2),
+            "profit_t2": round(self.profit_t2, 2),
+            "profit_t3": round(self.profit_t3, 2) if self.profit_t3 else None,
+            "daily_goal": self.daily_goal,
+            "meets_daily_goal": self.meets_daily_goal,
+        }
+
+
+def compute_position_sizing(levels: TradeLevels) -> PositionSize | None:
+    """
+    Compute position sizing based on trade levels and config.
+    
+    Uses max risk % to determine position size, then calculates
+    expected profits at each target.
+    
+    Args:
+        levels: TradeLevels with buy_area, stop, and targets
+        
+    Returns:
+        PositionSize object or None if no valid entry
+    """
+    settings = get_settings()
+    
+    # Skip if no buy area or stop
+    if not levels.buy_area or not levels.stop:
+        return None
+    
+    capital = settings.trading_capital
+    max_risk_pct = settings.max_risk_percent
+    daily_goal = settings.daily_profit_goal
+    
+    # Calculate entry price (midpoint of buy area)
+    entry = (levels.buy_area[0] + levels.buy_area[1]) / 2
+    stop = levels.stop
+    
+    # Risk per share
+    risk_per_share = entry - stop
+    
+    if risk_per_share <= 0:
+        return None
+    
+    # Max dollar risk
+    max_risk_dollars = capital * (max_risk_pct / 100)
+    
+    # Position size (shares)
+    shares = int(max_risk_dollars / risk_per_share)
+    
+    # Make sure we can afford the shares
+    max_shares_by_capital = int(capital / entry)
+    shares = min(shares, max_shares_by_capital)
+    
+    if shares <= 0:
+        return None
+    
+    # Actual risk
+    total_risk = shares * risk_per_share
+    
+    # Profits at each target
+    profit_t1 = shares * (levels.target_1 - entry) if levels.target_1 else 0
+    profit_t2 = shares * (levels.target_2 - entry) if levels.target_2 else 0
+    profit_t3 = shares * (levels.target_3 - entry) if levels.target_3 else None
+    
+    # Check if meets daily goal at T1
+    meets_goal = profit_t1 >= daily_goal
+    
+    return PositionSize(
+        capital=capital,
+        shares=shares,
+        entry_price=entry,
+        stop_price=stop,
+        risk_per_share=risk_per_share,
+        total_risk=total_risk,
+        max_risk_percent=max_risk_pct,
+        profit_t1=profit_t1,
+        profit_t2=profit_t2,
+        profit_t3=profit_t3,
+        daily_goal=daily_goal,
+        meets_daily_goal=meets_goal,
+    )
+
+
 def add_levels_to_picks(picks: list[Candidate]) -> list[dict]:
     """
-    Compute levels for all picks and return enriched data.
+    Compute levels and position sizing for all picks.
 
     Args:
         picks: List of top picked candidates
 
     Returns:
-        List of dicts with candidate data and levels
+        List of dicts with candidate data, levels, and position sizing
     """
     results = []
 
     for pick in picks:
         try:
             levels = compute_levels(pick)
+            
+            # Compute position sizing
+            position = compute_position_sizing(levels)
 
             result = {
                 **pick.to_dict(),
                 "levels": levels.to_dict(),
+                "position": position.to_dict() if position else None,
                 "score": pick.metadata.get("final_score", 0),
             }
 
             results.append(result)
-            logger.info(
-                f"{pick.symbol}: {levels.setup_type} - "
-                f"Buy ${levels.buy_area[0]:.2f}-${levels.buy_area[1]:.2f} "
-                if levels.buy_area
-                else f"{pick.symbol}: {levels.setup_type} - No entry"
-            )
+            
+            # Enhanced logging with position info
+            if levels.buy_area and position:
+                logger.info(
+                    f"{pick.symbol}: {levels.setup_type} - "
+                    f"Buy ${levels.buy_area[0]:.2f}-${levels.buy_area[1]:.2f} | "
+                    f"{position.shares} shares | Risk ${position.total_risk:.2f} | "
+                    f"T1 profit ${position.profit_t1:.2f}"
+                )
+            elif levels.buy_area:
+                logger.info(
+                    f"{pick.symbol}: {levels.setup_type} - "
+                    f"Buy ${levels.buy_area[0]:.2f}-${levels.buy_area[1]:.2f}"
+                )
+            else:
+                logger.info(f"{pick.symbol}: {levels.setup_type} - No entry")
 
         except Exception as e:
             logger.warning(f"Failed to compute levels for {pick.symbol}: {e}")
@@ -429,6 +658,7 @@ def add_levels_to_picks(picks: list[Candidate]) -> list[dict]:
             results.append({
                 **pick.to_dict(),
                 "levels": None,
+                "position": None,
                 "score": pick.metadata.get("final_score", 0),
             })
 

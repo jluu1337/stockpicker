@@ -79,6 +79,28 @@ class Settings(BaseSettings):
         default=False,
         description="Whether to send email when market is closed",
     )
+    
+    # Position sizing settings
+    trading_capital: float = Field(
+        default=1000.0, description="Trading capital for position sizing"
+    )
+    max_risk_percent: float = Field(
+        default=3.0, description="Maximum risk per trade as % of capital"
+    )
+    daily_profit_goal: float = Field(
+        default=20.0, description="Daily profit goal in dollars"
+    )
+    
+    # Trading/Position sizing settings
+    trading_capital: float = Field(
+        default=1000.0, description="Trading capital available ($)"
+    )
+    max_risk_pct: float = Field(
+        default=3.0, description="Maximum risk per trade as % of capital"
+    )
+    daily_profit_goal: float = Field(
+        default=20.0, description="Daily profit goal ($)"
+    )
 
     # Provider settings
     provider_name: str = Field(

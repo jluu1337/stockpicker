@@ -188,6 +188,9 @@ Each pick includes risk flags to help you make informed decisions:
 | `MAX_MARKET_CAP` | 50,000,000,000 | Maximum market cap ($50B) |
 | `MAX_PCT_CHANGE` | 50 | Max % change (filter overextended) |
 | `MAX_EXTENSION_ATR` | 2.0 | Max ATR multiplier above VWAP |
+| `TRADING_CAPITAL` | 1000 | Your trading capital for position sizing |
+| `MAX_RISK_PERCENT` | 3.0 | Max risk per trade (% of capital) |
+| `DAILY_PROFIT_GOAL` | 20 | Daily profit goal in $ |
 | `SEND_MARKET_CLOSED_EMAIL` | false | Email on closed days |
 
 ### GitHub Variables (Optional)
@@ -196,6 +199,24 @@ Set repository variables for configuration overrides:
 - `MIN_PRICE`, `MIN_VOLUME`, `PICKS`, `TOP_N_SEED`
 - `MIN_FLOAT`, `MAX_FLOAT`, `MIN_MARKET_CAP`, `MAX_MARKET_CAP`
 - `MAX_PCT_CHANGE`, `MAX_EXTENSION_ATR`
+- `TRADING_CAPITAL`, `MAX_RISK_PERCENT`, `DAILY_PROFIT_GOAL`
+
+### Position Sizing
+
+The email now includes position sizing for each pick based on your capital:
+
+```
+📐 Position Sizing ($1,000 capital) ✓ MEETS GOAL
+
+Shares: 33
+Risk: $29.37
+T1 Profit: $28.71
+```
+
+- **Shares**: How many shares to buy based on your max risk %
+- **Risk**: Total dollar risk if stopped out
+- **T1 Profit**: Expected profit at Target 1
+- **✓ MEETS GOAL**: Shows if T1 profit meets your daily goal
 
 ## API Requirements
 

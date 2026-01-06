@@ -7,9 +7,9 @@ A GitHub Actions–scheduled stock momentum scanner that sends a daily email wat
 This tool automatically scans the stock market every trading day and emails you a curated watchlist of momentum stocks with actionable trade setups. Here's the flow:
 
 1. **Fetches market data** – Pulls top gainers and most active stocks from Alpaca/yfinance (up to 100 candidates)
-2. **Filters** – Removes penny stocks (<$5) and low-volume names (<1M shares)
-3. **Computes indicators** – For each candidate: VWAP, HOD/LOD, Opening Range (ORH/ORL), ATR, relative volume
-4. **Scores & ranks** – Uses a weighted formula (40% % change, 35% RVOL, 25% near-HOD) plus VWAP bonuses/penalties
+2. **Filters** – Removes penny stocks (<$5), low-volume names (<1M shares), ETFs, and applies float/market cap limits
+3. **Computes indicators** – For each candidate: VWAP, HOD/LOD, Opening Range (ORH/ORL), ATR, relative volume, gap-and-fade detection
+4. **Scores & ranks** – Uses a weighted formula (40% % change, 35% RVOL, 25% near-HOD) plus smart adjustments for VWAP position, overextension, and trend direction
 5. **Classifies setups** – Identifies pattern type: ORB Breakout, VWAP Reclaim, First Pullback, or "No clean setup"
 6. **Calculates trade levels** – For each pick: buy zone, stop loss, and 3 profit targets (T1/T2/T3) based on ATR
 7. **Sends email** – Delivers a formatted HTML email with top picks and a leaderboard via SendGrid
@@ -19,9 +19,14 @@ This tool automatically scans the stock market every trading day and emails you 
 
 - **Automated Daily Scans**: Runs automatically via GitHub Actions on trading days
 - **DST-Safe Scheduling**: Dual cron schedule ensures correct 8:40 AM CT execution year-round
+- **Smart Filtering**: Float/market cap limits to avoid low-float traps and mega-cap slugs
 - **Momentum Scoring**: Rank-normalized scoring based on % change, relative volume, and proximity to HOD
+- **Gap-and-Fade Detection**: Penalizes stocks that are red from their session open (fading)
+- **ATR-Based Overextension**: Volatility-adjusted overextension detection (not fixed %)
+- **Extreme Gainer Penalty**: Diminishing returns on 20%+ movers to avoid chasing
 - **Trade Levels**: Rule-based buy areas, stops, and targets (T1/T2/T3) for each setup
 - **Setup Classification**: Identifies ORB Breakout, VWAP Reclaim, First Pullback, or conservative fallback
+- **Risk Flags**: Warns about low float, large cap, fading, overextension, etc.
 - **Email Delivery**: Beautiful HTML email via SendGrid with picks and top-10 leaderboard
 - **History Persistence**: Daily results saved as JSON and committed to the repo
 
@@ -116,14 +121,15 @@ GitHub Actions only supports UTC cron schedules. To hit 8:40 AM Central Time yea
 
 ### Scanning Pipeline
 
-1. **Seed Candidates**: Get top gainers + most active from Alpaca (up to 100)
-2. **Filter**: Apply price (≥$5) and volume (≥1M) thresholds
-3. **Enrich**: Fetch 1-minute bars and compute indicators
-4. **Score**: Rank-normalize and apply bonuses/penalties
-5. **Select**: Pick top 3-5 by final score
-6. **Levels**: Compute buy area, stop, and targets for each
-7. **Email**: Send formatted HTML via SendGrid
-8. **Persist**: Save JSON and commit to repo
+1. **Seed Candidates**: Get top gainers + most active from Alpaca/yfinance (up to 100)
+2. **Pre-Filter**: Apply price (≥$5) and volume (≥1M) thresholds
+3. **Enrich**: Fetch 1-minute bars, compute indicators, get float/market cap
+4. **Post-Filter**: Apply float (5M-500M), market cap ($100M-$50B), max % change (50%), exclude ETFs
+5. **Score**: Rank-normalize and apply smart adjustments (VWAP, ATR overextension, fade detection)
+6. **Select**: Pick top 3-5 by final score
+7. **Levels**: Compute buy area, stop, and targets for each
+8. **Email**: Send formatted HTML via SendGrid
+9. **Persist**: Save JSON and commit to repo
 
 ### Scoring Formula
 
@@ -133,17 +139,38 @@ base_score = 0.40 × pct_change_rank + 0.35 × rvol_rank + 0.25 × near_hod_rank
 Adjustments:
   +0.05 if price > VWAP
   -0.10 if price < VWAP
-  -0.05 if overextended (price > VWAP × 1.03)
+  -0.08 if overextended (price > VWAP + 2×ATR)  # ATR-based, adapts to volatility
+  -0.04/-0.08/-0.12 if % change > 20/30/40%     # Extreme gainer penalty
+  -0.10 if fading from open (down >2% from session open)
+  -0.03 if slightly red from open
+  +0.05 if green from open AND near HOD ≥ 0.98  # Strong continuation bonus
 ```
 
 ### Setup Types
 
 | Setup | Condition | Entry |
 |-------|-----------|-------|
-| **ORB Breakout** | Price ≥ ORH, above VWAP, near_hod ≥ 0.98 | Above ORH |
+| **ORB Breakout** | Price ≥ ORH, above VWAP, near_hod ≥ 0.98, **green from open** | Above ORH |
 | **VWAP Reclaim** | Price > VWAP, recently crossed from below | At VWAP |
-| **First Pullback** | Above VWAP, near_hod ≥ 0.97, pullback low > VWAP | Above pullback |
+| **First Pullback** | Above VWAP, near_hod ≥ 0.97, pullback low > VWAP, **green from open**, **≥1% pullback depth** | Above pullback |
 | **Fallback** | None of the above | Conservative/Skip |
+
+> **Note**: ORB Breakout and First Pullback now require the stock to be green from the session open. This filters out gap-and-fade scenarios where a stock gaps up but immediately sells off.
+
+### Risk Flags
+
+Each pick includes risk flags to help you make informed decisions:
+
+| Flag | Meaning |
+|------|---------|
+| `below_vwap` | Price is below VWAP (bearish) |
+| `overextended_atr` | Price is >2 ATR above VWAP |
+| `not_near_hod` | Price is <97% of HOD (losing momentum) |
+| `low_volume` | Volume <500K (half of minimum) |
+| `fading_from_open` | Price is red from session open |
+| `extreme_gainer` | Up >30% on the day (may be exhausted) |
+| `low_float` | Float <10M shares (manipulation risk) |
+| `large_cap` | Market cap >$20B (less explosive) |
 
 ## Configuration
 
@@ -155,12 +182,20 @@ Adjustments:
 | `MIN_VOLUME` | 1,000,000 | Minimum volume so far |
 | `PICKS` | 5 | Number of picks (3-5) |
 | `TOP_N_SEED` | 100 | Candidates to seed |
+| `MIN_FLOAT` | 5,000,000 | Minimum shares float (avoid low-float traps) |
+| `MAX_FLOAT` | 500,000,000 | Maximum shares float (avoid mega caps) |
+| `MIN_MARKET_CAP` | 100,000,000 | Minimum market cap ($100M) |
+| `MAX_MARKET_CAP` | 50,000,000,000 | Maximum market cap ($50B) |
+| `MAX_PCT_CHANGE` | 50 | Max % change (filter overextended) |
+| `MAX_EXTENSION_ATR` | 2.0 | Max ATR multiplier above VWAP |
 | `SEND_MARKET_CLOSED_EMAIL` | false | Email on closed days |
 
 ### GitHub Variables (Optional)
 
 Set repository variables for configuration overrides:
 - `MIN_PRICE`, `MIN_VOLUME`, `PICKS`, `TOP_N_SEED`
+- `MIN_FLOAT`, `MAX_FLOAT`, `MIN_MARKET_CAP`, `MAX_MARKET_CAP`
+- `MAX_PCT_CHANGE`, `MAX_EXTENSION_ATR`
 
 ## API Requirements
 

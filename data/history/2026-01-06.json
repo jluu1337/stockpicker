@@ -1,0 +1,285 @@
+{
+  "run_ts_ct": "2026-01-06 11:52:27 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "OS",
+      "last": 23.57,
+      "vwap": 23.37,
+      "hod": 23.87,
+      "lod": 22.31,
+      "near_hod": 0.9874,
+      "volume_so_far": 12024484,
+      "atr_1m": 0.0741,
+      "pct_change": 28.11,
+      "rvol": 7.22,
+      "orh": 23.87,
+      "orl": 22.67,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 23.57,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          23.57,
+          23.59
+        ],
+        "stop": 23.55,
+        "target_1": 23.61,
+        "target_2": 23.64,
+        "target_3": 23.89,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $23.57. Stop below pullback at $23.55. Targeting 1R/2R/HOD extension.",
+        "risk_flags": []
+      },
+      "score": 0.9395
+    },
+    {
+      "symbol": "HSAI",
+      "last": 27.2,
+      "vwap": 26.13,
+      "hod": 27.27,
+      "lod": 25.17,
+      "near_hod": 0.9974,
+      "volume_so_far": 4753392,
+      "atr_1m": 0.0472,
+      "pct_change": 12.58,
+      "rvol": 1.88,
+      "orh": 25.69,
+      "orl": 25.17,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 27.15,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          25.69,
+          25.69
+        ],
+        "stop": 25.17,
+        "target_1": 26.22,
+        "target_2": 26.74,
+        "target_3": 27.29,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $25.69. Stop below VWAP/ORL at $25.17. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended"
+        ]
+      },
+      "score": 0.8977
+    },
+    {
+      "symbol": "WDC",
+      "last": 217.33,
+      "vwap": 210.14,
+      "hod": 217.81,
+      "lod": 188.35,
+      "near_hod": 0.9978,
+      "volume_so_far": 10351838,
+      "atr_1m": 0.4723,
+      "pct_change": 15.73,
+      "rvol": 1.19,
+      "orh": 195.33,
+      "orl": 189.25,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 216.55,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          195.33,
+          195.4
+        ],
+        "stop": 189.2,
+        "target_1": 201.53,
+        "target_2": 207.69,
+        "target_3": 218.05,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $195.33. Stop below VWAP/ORL at $189.20. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended"
+        ]
+      },
+      "score": 0.8884
+    },
+    {
+      "symbol": "SNDK",
+      "last": 338.65,
+      "vwap": 329.12,
+      "hod": 343.0,
+      "lod": 299.09,
+      "near_hod": 0.9873,
+      "volume_so_far": 10875544,
+      "atr_1m": 0.744,
+      "pct_change": 23.46,
+      "rvol": 1.02,
+      "orh": 313.74,
+      "orl": 299.09,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 338.47,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          313.74,
+          313.85
+        ],
+        "stop": 299.02,
+        "target_1": 328.58,
+        "target_2": 343.36,
+        "target_3": 350.75,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $313.74. Stop below VWAP/ORL at $299.02. Targeting 1R/2R/HOD extension.",
+        "risk_flags": []
+      },
+      "score": 0.8512
+    },
+    {
+      "symbol": "SIMO",
+      "last": 106.14,
+      "vwap": 104.43,
+      "hod": 108.0,
+      "lod": 94.35,
+      "near_hod": 0.9828,
+      "volume_so_far": 646577,
+      "atr_1m": 0.1549,
+      "pct_change": 12.38,
+      "rvol": 1.73,
+      "orh": 96.52,
+      "orl": 95.24,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 105.62,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          96.52,
+          96.54
+        ],
+        "stop": 95.22,
+        "target_1": 97.84,
+        "target_2": 99.15,
+        "target_3": 108.08,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $96.52. Stop below VWAP/ORL at $95.22. Targeting 1R/2R/HOD extension.",
+        "risk_flags": []
+      },
+      "score": 0.8256
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "OS",
+      "score": 0.9395,
+      "pct_change": 28.11,
+      "rvol": 7.22,
+      "near_hod": 0.9874,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "HSAI",
+      "score": 0.8977,
+      "pct_change": 12.58,
+      "rvol": 1.88,
+      "near_hod": 0.9974,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "WDC",
+      "score": 0.8884,
+      "pct_change": 15.73,
+      "rvol": 1.19,
+      "near_hod": 0.9978,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "SNDK",
+      "score": 0.8512,
+      "pct_change": 23.46,
+      "rvol": 1.02,
+      "near_hod": 0.9873,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "SIMO",
+      "score": 0.8256,
+      "pct_change": 12.38,
+      "rvol": 1.73,
+      "near_hod": 0.9828,
+      "above_vwap": true
+    },
+    {
+      "rank": 6,
+      "symbol": "AG",
+      "score": 0.7279,
+      "pct_change": 8.21,
+      "rvol": 0.73,
+      "near_hod": 0.9962,
+      "above_vwap": true
+    },
+    {
+      "rank": 7,
+      "symbol": "HL",
+      "score": 0.7244,
+      "pct_change": 11.44,
+      "rvol": 0.72,
+      "near_hod": 0.9984,
+      "above_vwap": true
+    },
+    {
+      "rank": 8,
+      "symbol": "VALE",
+      "score": 0.7209,
+      "pct_change": 4.16,
+      "rvol": 0.91,
+      "near_hod": 0.9996,
+      "above_vwap": true
+    },
+    {
+      "rank": 9,
+      "symbol": "RKLB",
+      "score": 0.6988,
+      "pct_change": 7.64,
+      "rvol": 0.72,
+      "near_hod": 1.0,
+      "above_vwap": true
+    },
+    {
+      "rank": 10,
+      "symbol": "ALGM",
+      "score": 0.6907,
+      "pct_change": 10.73,
+      "rvol": 0.9,
+      "near_hod": 0.9781,
+      "above_vwap": true
+    }
+  ]
+}

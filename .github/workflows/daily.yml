@@ -1,0 +1,103 @@
+name: Daily Momentum Scan
+
+on:
+  schedule:
+    # DST-safe dual schedule:
+    # 13:40 UTC = 8:40 AM CDT (Central Daylight Time, UTC-5)
+    # 14:40 UTC = 8:40 AM CST (Central Standard Time, UTC-6)
+    # Only one will match the 08:38-08:42 CT window, the other exits gracefully
+    - cron: "40 13 * * 1-5"
+    - cron: "40 14 * * 1-5"
+  
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force run (ignore time gate and duplicate checks)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    # Prevent concurrent runs
+    concurrency:
+      group: momentum-scan
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Need full history for commits
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run momentum scanner
+        id: scan
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          # Optional configuration overrides
+          MIN_PRICE: ${{ vars.MIN_PRICE || '5' }}
+          MIN_VOLUME: ${{ vars.MIN_VOLUME || '1000000' }}
+          PICKS: ${{ vars.PICKS || '5' }}
+          TOP_N_SEED: ${{ vars.TOP_N_SEED || '100' }}
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python -m app.main --force
+          else
+            python -m app.main
+          fi
+        continue-on-error: true
+
+      - name: Check scan result
+        run: |
+          if [ "${{ steps.scan.outcome }}" = "failure" ]; then
+            echo "Scan failed with error"
+            exit 1
+          fi
+
+      - name: Commit history file
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add any new history files
+          git add data/history/*.json 2>/dev/null || true
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            DATE=$(date +%Y-%m-%d)
+            git commit -m "Add daily scan ${DATE}"
+            git push
+            echo "Committed and pushed history file"
+          fi
+
+      - name: Upload artifacts (backup)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan-results-${{ github.run_id }}
+          path: data/history/*.json
+          retention-days: 30
+          if-no-files-found: ignore
+

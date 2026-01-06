@@ -2,6 +2,19 @@
 
 A GitHub Actions–scheduled stock momentum scanner that sends a daily email watchlist at 8:40 AM Central Time.
 
+## What It Does
+
+This tool automatically scans the stock market every trading day and emails you a curated watchlist of momentum stocks with actionable trade setups. Here's the flow:
+
+1. **Fetches market data** – Pulls top gainers and most active stocks from Alpaca/yfinance (up to 100 candidates)
+2. **Filters** – Removes penny stocks (<$5) and low-volume names (<1M shares)
+3. **Computes indicators** – For each candidate: VWAP, HOD/LOD, Opening Range (ORH/ORL), ATR, relative volume
+4. **Scores & ranks** – Uses a weighted formula (40% % change, 35% RVOL, 25% near-HOD) plus VWAP bonuses/penalties
+5. **Classifies setups** – Identifies pattern type: ORB Breakout, VWAP Reclaim, First Pullback, or "No clean setup"
+6. **Calculates trade levels** – For each pick: buy zone, stop loss, and 3 profit targets (T1/T2/T3) based on ATR
+7. **Sends email** – Delivers a formatted HTML email with top picks and a leaderboard via SendGrid
+8. **Persists results** – Saves daily output as JSON to `data/history/` and commits to the repo
+
 ## Features
 
 - **Automated Daily Scans**: Runs automatically via GitHub Actions on trading days

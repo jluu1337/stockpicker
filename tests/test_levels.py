@@ -111,17 +111,18 @@ class TestComputeRiskFlags:
         assert "below_vwap" in flags
     
     def test_overextended_flag(self):
-        """Test overextended flag."""
+        """Test overextended ATR flag."""
         c = Candidate(
             symbol="OVER",
             last=105.0,
-            vwap=100.0,  # 5% above VWAP (>3%)
+            vwap=100.0,
+            atr_1m=2.0,  # 5/2 = 2.5 ATR above VWAP (>2.0 threshold)
             above_vwap=True,
             volume_so_far=1_000_000,
             near_hod=0.98,
         )
         flags = compute_risk_flags(c)
-        assert "overextended" in flags
+        assert "overextended_atr" in flags
     
     def test_not_near_hod_flag(self):
         """Test not_near_hod flag."""

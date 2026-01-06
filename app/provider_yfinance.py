@@ -522,13 +522,13 @@ class YFinanceProvider(DataProvider):
 
     def get_metadata(self, symbol: str) -> dict[str, Any]:
         """
-        Get metadata for a symbol.
+        Get metadata for a symbol including float and market cap.
 
         Args:
             symbol: Stock ticker symbol
 
         Returns:
-            Metadata dict
+            Metadata dict with type, float, market cap, etc.
         """
         try:
             ticker = yf.Ticker(symbol)
@@ -536,6 +536,10 @@ class YFinanceProvider(DataProvider):
 
             quote_type = info.get("quoteType", "").upper()
             is_etf = quote_type == "ETF"
+            
+            # Get float and market cap for filtering
+            shares_float = info.get("floatShares")
+            market_cap = info.get("marketCap")
 
             return {
                 "type_unknown": False,
@@ -544,6 +548,8 @@ class YFinanceProvider(DataProvider):
                 "name": info.get("shortName", ""),
                 "sector": info.get("sector", ""),
                 "avg_volume_20d": info.get("averageVolume", None),
+                "shares_float": int(shares_float) if shares_float else None,
+                "market_cap": int(market_cap) if market_cap else None,
             }
 
         except Exception as e:

@@ -337,6 +337,12 @@ def compute_all_indicators(
     atr_1m = compute_atr(bars, period=atr_period)
     orh, orl = compute_or_levels(bars, session_open, or_minutes)
 
+    # Get open price (first bar open) for gap-and-fade detection
+    open_price = float(bars["open"].iloc[0]) if not bars.empty else 0.0
+    
+    # Compute vs_open (% change from session open)
+    vs_open = compute_pct_change(last, open_price) if open_price > 0 else 0.0
+
     # Use prev_close for pct_change, fallback to first bar open
     reference = prev_close
     if reference is None and not bars.empty:
@@ -365,5 +371,7 @@ def compute_all_indicators(
         "pullback_low": pullback_low,
         "above_vwap": last > vwap,
         "bars": bars,  # Include bars for further analysis
+        "open_price": open_price,  # Session open price
+        "vs_open": vs_open,  # % change from session open
     }
 

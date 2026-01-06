@@ -62,7 +62,7 @@ def rank_normalize(values: list[float]) -> list[float]:
 
 def compute_scores(candidates: list[Candidate]) -> list[Candidate]:
     """
-    Compute momentum scores for candidates.
+    Compute momentum scores for candidates with improved logic.
 
     Scoring formula:
     base_score = 0.40*pct_change_rank + 0.35*rvol_rank + 0.25*near_hod_rank
@@ -70,7 +70,10 @@ def compute_scores(candidates: list[Candidate]) -> list[Candidate]:
     Bonuses/Penalties:
     - +0.05 if last > vwap
     - -0.10 if last < vwap
-    - -0.05 if overextended ((last - vwap)/vwap > 0.03)
+    - ATR-based overextension penalty (replaces fixed 3%)
+    - Extreme gainer penalty (diminishing returns on 20%+ movers)
+    - Gap-and-fade detection penalty
+    - Strong continuation bonus
 
     Args:
         candidates: List of enriched candidates
@@ -82,6 +85,7 @@ def compute_scores(candidates: list[Candidate]) -> list[Candidate]:
         return []
 
     n = len(candidates)
+    settings = get_settings()
     logger.info(f"Computing scores for {n} candidates")
 
     # Extract values for ranking
@@ -106,17 +110,41 @@ def compute_scores(candidates: list[Candidate]) -> list[Candidate]:
         # Apply bonuses/penalties
         adjustment = 0.0
 
-        # VWAP position
+        # VWAP position bonus/penalty
         if c.last > c.vwap:
             adjustment += 0.05
         elif c.last < c.vwap:
             adjustment -= 0.10
 
-        # Overextended check
-        if c.vwap > 0:
-            extension = (c.last - c.vwap) / c.vwap
-            if extension > 0.03:
-                adjustment -= 0.05
+        # ATR-based overextension check (replaces fixed 3% threshold)
+        # This adapts to each stock's volatility
+        if c.vwap > 0 and c.atr_1m > 0:
+            atr_above_vwap = (c.last - c.vwap) / c.atr_1m
+            if atr_above_vwap > settings.max_extension_atr:
+                adjustment -= 0.08
+                c.metadata["overextended_atr"] = round(atr_above_vwap, 2)
+
+        # Extreme gainer penalty (diminishing returns on big movers)
+        # Stocks already up 40%+ have less upside potential
+        if c.pct_change > 40:
+            adjustment -= 0.12
+        elif c.pct_change > 30:
+            adjustment -= 0.08
+        elif c.pct_change > 20:
+            adjustment -= 0.04
+
+        # Gap-and-fade detection penalty
+        # If price is red from session open, it's likely fading
+        if c.vs_open < -2.0:  # Down more than 2% from open
+            adjustment -= 0.10
+            c.metadata["fading_from_open"] = True
+        elif c.vs_open < 0:  # Slightly red from open
+            adjustment -= 0.03
+
+        # Strong continuation bonus
+        # Green from open AND near HOD = strong trend
+        if c.is_green_since_open and c.near_hod >= 0.98:
+            adjustment += 0.05
 
         # Final score (clamp to 0-1)
         final_score = max(0.0, min(1.0, base_score + adjustment))

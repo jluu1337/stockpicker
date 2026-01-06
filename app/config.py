@@ -43,6 +43,28 @@ class Settings(BaseSettings):
         default=100, description="Number of candidates to seed from movers"
     )
     picks: int = Field(default=5, description="Number of top picks to include (3-5)")
+    
+    # Float and market cap filters
+    min_float: int = Field(
+        default=5_000_000, description="Minimum shares float"
+    )
+    max_float: int = Field(
+        default=500_000_000, description="Maximum shares float (avoid mega caps)"
+    )
+    min_market_cap: int = Field(
+        default=100_000_000, description="Minimum market cap ($100M)"
+    )
+    max_market_cap: int = Field(
+        default=50_000_000_000, description="Maximum market cap ($50B)"
+    )
+    
+    # Extension and momentum filters
+    max_pct_change: float = Field(
+        default=50.0, description="Max % change to avoid overextended names"
+    )
+    max_extension_atr: float = Field(
+        default=2.0, description="Max ATR multiplier above VWAP for overextension"
+    )
 
     # Time gate settings
     execution_window_minutes: int = Field(

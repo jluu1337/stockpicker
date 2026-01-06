@@ -41,6 +41,13 @@ class Candidate:
     is_otc: bool = False
     rejection_reason: str | None = None
     metadata: dict[str, Any] = field(default_factory=dict)
+    
+    # Enhanced fields for improved breakout detection
+    open_price: float = 0.0           # First bar open price
+    vs_open: float = 0.0              # (last - open) / open as %
+    is_green_since_open: bool = True  # Direction since open
+    shares_float: int | None = None   # Shares float
+    market_cap: int | None = None     # Market cap in dollars
 
     def to_dict(self) -> dict:
         """Convert to dictionary for JSON serialization."""
@@ -64,6 +71,12 @@ class Candidate:
             "type_unknown": self.type_unknown,
             "is_etf": self.is_etf,
             "is_otc": self.is_otc,
+            # Enhanced fields
+            "open_price": round(self.open_price, 2),
+            "vs_open": round(self.vs_open, 2),
+            "is_green_since_open": self.is_green_since_open,
+            "shares_float": self.shares_float,
+            "market_cap": self.market_cap,
         }
 
 
@@ -113,14 +126,16 @@ def filter_candidates(
     candidates: list[Candidate],
     min_price: float = 5.0,
     min_volume: int = 1_000_000,
+    apply_float_filters: bool = True,
 ) -> tuple[list[Candidate], list[Candidate]]:
     """
-    Filter candidates based on price and volume thresholds.
+    Filter candidates based on price, volume, float, and market cap thresholds.
 
     Args:
         candidates: List of candidates to filter
         min_price: Minimum stock price
         min_volume: Minimum volume so far
+        apply_float_filters: Whether to apply float/market cap filters (skip on pre-filter)
 
     Returns:
         Tuple of (passed, rejected) candidates
@@ -145,11 +160,47 @@ def filter_candidates(
             rejected.append(c)
             continue
 
-        # OTC filter (if we can detect it)
+        # OTC filter
         if c.is_otc:
             c.rejection_reason = "OTC stock excluded"
             rejected.append(c)
             continue
+
+        # ETF filter
+        if c.is_etf:
+            c.rejection_reason = "ETF excluded"
+            rejected.append(c)
+            continue
+
+        # Apply float/market cap filters only after enrichment
+        if apply_float_filters:
+            # Float filter (if available)
+            if c.shares_float is not None:
+                if c.shares_float < settings.min_float:
+                    c.rejection_reason = f"Float {c.shares_float:,} < {settings.min_float:,} (low float trap)"
+                    rejected.append(c)
+                    continue
+                if c.shares_float > settings.max_float:
+                    c.rejection_reason = f"Float {c.shares_float:,} > {settings.max_float:,} (too heavy)"
+                    rejected.append(c)
+                    continue
+
+            # Market cap filter (if available)
+            if c.market_cap is not None:
+                if c.market_cap < settings.min_market_cap:
+                    c.rejection_reason = f"Market cap ${c.market_cap:,} < ${settings.min_market_cap:,}"
+                    rejected.append(c)
+                    continue
+                if c.market_cap > settings.max_market_cap:
+                    c.rejection_reason = f"Market cap ${c.market_cap:,} > ${settings.max_market_cap:,} (mega cap)"
+                    rejected.append(c)
+                    continue
+
+            # Extreme % change filter (avoid overextended stocks)
+            if c.pct_change > settings.max_pct_change:
+                c.rejection_reason = f"% change {c.pct_change:.1f}% > {settings.max_pct_change}% (overextended)"
+                rejected.append(c)
+                continue
 
         passed.append(c)
 
@@ -254,6 +305,11 @@ def enrich_candidates(
             c.vwap_cross = indicators["vwap_cross"]
             c.pullback_low = indicators["pullback_low"]
             c.prev_close = prev_close
+            
+            # Enhanced fields for breakout detection
+            c.open_price = indicators.get("open_price", 0.0)
+            c.vs_open = indicators.get("vs_open", 0.0)
+            c.is_green_since_open = c.last > c.open_price if c.open_price > 0 else True
 
             # Compute RVOL (fallback to median)
             metadata = provider.get_metadata(c.symbol)
@@ -264,6 +320,8 @@ def enrich_candidates(
             c.type_unknown = metadata.get("type_unknown", True)
             c.is_etf = metadata.get("is_etf", False)
             c.is_otc = metadata.get("is_otc", False)
+            c.shares_float = metadata.get("shares_float")
+            c.market_cap = metadata.get("market_cap")
 
             # Store bars in metadata for levels computation
             c.metadata["bars"] = bars
@@ -294,21 +352,23 @@ def run_scan(provider: DataProvider) -> tuple[list[Candidate], list[Candidate]]:
     candidates = seed_candidates(provider, top_n_seed=settings.top_n_seed)
 
     # Pre-filter before enrichment (saves API calls)
-    # Note: We use initial mover data for price/volume, will re-filter after enrichment
+    # Skip float/market cap filters here since we don't have that data yet
     passed, rejected = filter_candidates(
         candidates,
         min_price=settings.min_price,
         min_volume=settings.min_volume,
+        apply_float_filters=False,  # Don't apply float/cap filters before enrichment
     )
 
     # Enrich passed candidates
     enriched = enrich_candidates(passed, provider)
 
-    # Re-filter after enrichment with accurate data
+    # Re-filter after enrichment with accurate data + float/market cap filters
     final_passed, newly_rejected = filter_candidates(
         enriched,
         min_price=settings.min_price,
         min_volume=settings.min_volume,
+        apply_float_filters=True,  # Now apply float/market cap filters
     )
 
     # Combine rejected

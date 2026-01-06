@@ -55,9 +55,13 @@ def compute_risk_flags(candidate: Candidate) -> list[str]:
 
     Flags:
     - below_vwap: Price is below VWAP
-    - overextended: Price > VWAP * 1.03
+    - overextended_atr: Price > VWAP by more than 2 ATR
     - not_near_hod: near_hod < 0.97
     - low_volume: volume_so_far < 500k (half of min threshold)
+    - fading_from_open: Price is red from session open
+    - extreme_gainer: Up more than 30% on the day
+    - low_float: Float < 10M shares (manipulation risk)
+    - large_cap: Market cap > $20B (less explosive)
 
     Args:
         candidate: Enriched candidate
@@ -70,16 +74,33 @@ def compute_risk_flags(candidate: Candidate) -> list[str]:
     if not candidate.above_vwap:
         flags.append("below_vwap")
 
-    if candidate.vwap > 0:
-        extension = (candidate.last - candidate.vwap) / candidate.vwap
-        if extension > 0.03:
-            flags.append("overextended")
+    # ATR-based overextension (replaces fixed 3% threshold)
+    if candidate.vwap > 0 and candidate.atr_1m > 0:
+        atr_extension = (candidate.last - candidate.vwap) / candidate.atr_1m
+        if atr_extension > 2.0:
+            flags.append("overextended_atr")
 
     if candidate.near_hod < 0.97:
         flags.append("not_near_hod")
 
     if candidate.volume_so_far < 500_000:
         flags.append("low_volume")
+
+    # Gap-and-fade detection
+    if not candidate.is_green_since_open:
+        flags.append("fading_from_open")
+
+    # Extreme gainer warning
+    if candidate.pct_change > 30:
+        flags.append("extreme_gainer")
+
+    # Float warning (if available)
+    if candidate.shares_float and candidate.shares_float < 10_000_000:
+        flags.append("low_float")
+
+    # Large cap warning (less explosive moves)
+    if candidate.market_cap and candidate.market_cap > 20_000_000_000:
+        flags.append("large_cap")
 
     return flags
 
@@ -90,6 +111,10 @@ def classify_setup(candidate: Candidate) -> SetupType:
 
     Priority: ORB Breakout > VWAP Reclaim > First Pullback > Fallback
 
+    Enhanced logic:
+    - ORB Breakout now requires green from open (no gap-and-fade)
+    - First Pullback requires meaningful pullback depth (at least 1%)
+
     Args:
         candidate: Enriched candidate with indicators
 
@@ -97,12 +122,13 @@ def classify_setup(candidate: Candidate) -> SetupType:
         Setup type classification
     """
     # A) ORB Breakout
-    # Condition: last >= ORH AND last > VWAP AND near_hod >= 0.98
+    # Condition: last >= ORH AND last > VWAP AND near_hod >= 0.98 AND green from open
     if (
         candidate.last >= candidate.orh
         and candidate.last > candidate.vwap
         and candidate.near_hod >= 0.98
         and candidate.orh > 0
+        and candidate.is_green_since_open  # Must be green from open (no gap-and-fade)
     ):
         return "ORB Breakout"
 
@@ -111,15 +137,22 @@ def classify_setup(candidate: Candidate) -> SetupType:
     if candidate.last > candidate.vwap and candidate.vwap_cross:
         return "VWAP Reclaim"
 
-    # C) First Pullback
-    # Condition: last > VWAP AND near_hod >= 0.97 AND pullback low above VWAP exists
+    # C) First Pullback (tighter logic)
+    # Condition: last > VWAP AND near_hod >= 0.97 AND pullback low above VWAP
+    # Additional: must be green from open AND have meaningful pullback depth
     if (
         candidate.last > candidate.vwap
         and candidate.near_hod >= 0.97
         and candidate.pullback_low is not None
         and candidate.pullback_low > candidate.vwap
+        and candidate.is_green_since_open  # Must be green from open
     ):
-        return "First Pullback"
+        # Check that pullback is meaningful (not just noise)
+        # At least 1% pullback from HOD indicates real consolidation
+        if candidate.hod > 0:
+            pullback_depth = (candidate.hod - candidate.pullback_low) / candidate.hod
+            if pullback_depth >= 0.01:  # At least 1% pullback
+                return "First Pullback"
 
     # Fallback
     return "No clean setup"

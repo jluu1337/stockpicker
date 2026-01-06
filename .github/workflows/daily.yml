@@ -59,7 +59,9 @@ jobs:
           PICKS: ${{ vars.PICKS || '5' }}
           TOP_N_SEED: ${{ vars.TOP_N_SEED || '100' }}
         run: |
-          if [ "${{ inputs.force }}" = "true" ]; then
+          # Force mode if: manually triggered OR force checkbox is checked
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual trigger detected - using force mode"
             python -m app.main --force
           else
             python -m app.main

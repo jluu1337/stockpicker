@@ -1,5 +1,5 @@
 {
-  "run_ts_ct": "2026-01-06 17:21:15 CT",
+  "run_ts_ct": "2026-01-06 17:34:36 CT",
   "provider": "yfinance",
   "data_type": "delayed",
   "version": "1.0.0",
@@ -43,6 +43,7 @@
           "below_vwap"
         ]
       },
+      "position": null,
       "score": 0.88
     },
     {
@@ -84,6 +85,7 @@
           "fading_from_open"
         ]
       },
+      "position": null,
       "score": 0.69
     },
     {
@@ -128,6 +130,20 @@
           "fading_from_open"
         ]
       },
+      "position": {
+        "capital": 1000.0,
+        "shares": 8,
+        "entry_price": 112.98,
+        "stop_price": 112.92,
+        "risk_per_share": 0.05,
+        "total_risk": 0.41,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.41,
+        "profit_t2": 0.82,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
       "score": 0.59
     },
     {
@@ -170,6 +186,7 @@
           "fading_from_open"
         ]
       },
+      "position": null,
       "score": 0.22
     },
     {
@@ -212,6 +229,7 @@
           "fading_from_open"
         ]
       },
+      "position": null,
       "score": 0.05
     }
   ],

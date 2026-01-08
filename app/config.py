@@ -68,7 +68,7 @@ class Settings(BaseSettings):
 
     # Time gate settings
     execution_window_minutes: int = Field(
-        default=2,
+        default=15,
         description="Minutes tolerance around 8:40 CT for execution window",
     )
     target_hour: int = Field(default=8, description="Target hour CT for execution")

@@ -1,0 +1,9 @@
+{
+  "run_ts_ct": "2026-01-08 08:52:02 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 0,
+  "picks": [],
+  "leaderboard": []
+}

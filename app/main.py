@@ -20,7 +20,6 @@ from app.scanner import run_scan
 from app.time_gate import (
     format_chicago_timestamp,
     get_today_date_str,
-    is_in_execution_window,
 )
 
 # Configure logging
@@ -61,15 +60,7 @@ def main() -> int:
 
     settings = get_settings()
 
-    # Step 1: Time gate check
-    logger.info("Checking time gate...")
-    in_window, current_time = is_in_execution_window()
-
-    if not in_window:
-        logger.info("Outside execution window, exiting.")
-        return EXIT_SKIPPED
-
-    # Step 2: Check for duplicate run
+    # Step 1: Check for duplicate run
     if history_exists():
         logger.info("Run already completed today, exiting.")
         return EXIT_SKIPPED

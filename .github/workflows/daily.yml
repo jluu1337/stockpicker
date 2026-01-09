@@ -2,11 +2,8 @@ name: Daily Momentum Scan
 
 on:
   schedule:
-    # DST-safe dual schedule:
-    # 13:40 UTC = 8:40 AM CDT (Central Daylight Time, UTC-5)
     # 14:40 UTC = 8:40 AM CST (Central Standard Time, UTC-6)
-    # Only one will match the 08:38-08:42 CT window, the other exits gracefully
-    - cron: "40 13 * * 1-5"
+    # Note: Update to "40 13 * * 1-5" when DST starts (March)
     - cron: "40 14 * * 1-5"
   
   # Allow manual trigger for testing

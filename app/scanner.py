@@ -350,6 +350,10 @@ def run_scan(provider: DataProvider) -> tuple[list[Candidate], list[Candidate]]:
 
     # Seed candidates
     candidates = seed_candidates(provider, top_n_seed=settings.top_n_seed)
+    
+    if not candidates:
+        logger.warning("No candidates seeded from provider - check data source availability")
+        return [], []
 
     # Pre-filter before enrichment (saves API calls)
     # Skip float/market cap filters here since we don't have that data yet

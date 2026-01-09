@@ -118,7 +118,7 @@ def main() -> int:
         return EXIT_ERROR
 
     # Step 8: Send email
-    logger.info("Sending email...")
+    logger.info(f"Sending email... (picks={len(picks_with_levels)}, rejected={len(rejected)})")
     try:
         if picks_with_levels:
             email_sent = send_watchlist_email(picks_with_levels, leaderboard, run_meta)
@@ -128,6 +128,7 @@ def main() -> int:
                 {"symbol": r.symbol, "rejection_reason": r.rejection_reason}
                 for r in rejected[:10]
             ]
+            logger.info(f"Sending no-picks email with {len(rejected_dicts)} rejections")
             email_sent = send_no_picks_email(
                 top_movers=[],
                 rejected=rejected_dicts,
@@ -137,9 +138,9 @@ def main() -> int:
         if email_sent:
             logger.info("Email sent successfully.")
         else:
-            logger.warning("Email sending failed.")
+            logger.warning("Email sending failed - check SendGrid configuration.")
     except Exception as e:
-        logger.error(f"Email failed: {e}")
+        logger.error(f"Email failed with exception: {e}", exc_info=True)
         # Continue to persist even if email fails
 
     # Step 9: Persist results

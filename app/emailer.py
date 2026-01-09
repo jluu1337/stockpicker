@@ -360,6 +360,20 @@ def send_email(subject: str, html_body: str) -> bool:
         True if sent successfully
     """
     settings = get_settings()
+    
+    # Log email configuration (redacted)
+    api_key_preview = settings.sendgrid_api_key[:10] + "..." if settings.sendgrid_api_key else "MISSING"
+    logger.info(f"Email config: from={settings.from_email}, to={settings.to_email}, api_key={api_key_preview}")
+    
+    if not settings.sendgrid_api_key:
+        logger.error("SENDGRID_API_KEY is not set!")
+        return False
+    if not settings.from_email:
+        logger.error("FROM_EMAIL is not set!")
+        return False
+    if not settings.to_email:
+        logger.error("TO_EMAIL is not set!")
+        return False
 
     message = Mail(
         from_email=settings.from_email,
@@ -373,14 +387,14 @@ def send_email(subject: str, html_body: str) -> bool:
         response = sg.send(message)
 
         if response.status_code in (200, 201, 202):
-            logger.info(f"Email sent successfully: {subject}")
+            logger.info(f"Email sent successfully: {subject} (status={response.status_code})")
             return True
         else:
-            logger.error(f"Email failed with status {response.status_code}")
+            logger.error(f"Email failed with status {response.status_code}, body={response.body}")
             return False
 
     except Exception as e:
-        logger.error(f"Failed to send email: {e}")
+        logger.error(f"Failed to send email: {type(e).__name__}: {e}")
         return False
 
 

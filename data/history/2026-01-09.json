@@ -1,20 +1,20 @@
 {
-  "run_ts_ct": "2026-01-09 09:35:51 CT",
+  "run_ts_ct": "2026-01-09 09:40:52 CT",
   "provider": "yfinance",
   "data_type": "delayed",
   "version": "1.0.0",
-  "picks_count": 2,
+  "picks_count": 3,
   "picks": [
     {
       "symbol": "LYFT",
-      "last": 19.08,
+      "last": 19.01,
       "vwap": 19.13,
       "hod": 19.58,
       "lod": 18.97,
-      "near_hod": 0.9747,
-      "volume_so_far": 1874959,
-      "atr_1m": 0.0268,
-      "pct_change": -2.03,
+      "near_hod": 0.9711,
+      "volume_so_far": 1931906,
+      "atr_1m": 0.0283,
+      "pct_change": -2.39,
       "rvol": 0.13,
       "orh": 19.58,
       "orl": 19.45,
@@ -26,10 +26,10 @@
       "is_etf": false,
       "is_otc": false,
       "open_price": 19.56,
-      "vs_open": -2.43,
+      "vs_open": -2.79,
       "is_green_since_open": false,
       "shares_float": 346514950,
-      "market_cap": 7758968320,
+      "market_cap": 7730517504,
       "levels": {
         "setup_type": "No clean setup",
         "buy_area": null,
@@ -45,18 +45,18 @@
         ]
       },
       "position": null,
-      "score": 0.4
+      "score": 0.425
     },
     {
       "symbol": "DKNG",
-      "last": 35.85,
-      "vwap": 35.93,
+      "last": 35.79,
+      "vwap": 35.92,
       "hod": 36.95,
       "lod": 35.33,
-      "near_hod": 0.9704,
-      "volume_so_far": 1138223,
-      "atr_1m": 0.0435,
-      "pct_change": -0.4,
+      "near_hod": 0.9687,
+      "volume_so_far": 1206534,
+      "atr_1m": 0.0442,
+      "pct_change": -0.57,
       "rvol": 0.08,
       "orh": 36.95,
       "orl": 36.4,
@@ -68,10 +68,10 @@
       "is_etf": false,
       "is_otc": false,
       "open_price": 36.46,
-      "vs_open": -1.66,
+      "vs_open": -1.82,
       "is_green_since_open": false,
       "shares_float": 484312739,
-      "market_cap": 17857837056,
+      "market_cap": 17815279616,
       "levels": {
         "setup_type": "No clean setup",
         "buy_area": null,
@@ -83,30 +83,83 @@
         "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
         "risk_flags": [
           "below_vwap",
+          "not_near_hod",
           "fading_from_open"
         ]
       },
       "position": null,
-      "score": 0.27
+      "score": 0.395
+    },
+    {
+      "symbol": "MGM",
+      "last": 34.43,
+      "vwap": 34.75,
+      "hod": 35.81,
+      "lod": 34.36,
+      "near_hod": 0.9616,
+      "volume_so_far": 1006836,
+      "atr_1m": 0.0545,
+      "pct_change": -2.69,
+      "rvol": 0.22,
+      "orh": 35.81,
+      "orl": 35.5,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 35.68,
+      "vs_open": -3.5,
+      "is_green_since_open": false,
+      "shares_float": 204243669,
+      "market_cap": 9412723712,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.15
     }
   ],
   "leaderboard": [
     {
       "rank": 1,
       "symbol": "LYFT",
-      "score": 0.4,
-      "pct_change": -2.03,
+      "score": 0.425,
+      "pct_change": -2.39,
       "rvol": 0.13,
-      "near_hod": 0.9747,
+      "near_hod": 0.9711,
       "above_vwap": false
     },
     {
       "rank": 2,
       "symbol": "DKNG",
-      "score": 0.27,
-      "pct_change": -0.4,
+      "score": 0.395,
+      "pct_change": -0.57,
       "rvol": 0.08,
-      "near_hod": 0.9704,
+      "near_hod": 0.9687,
+      "above_vwap": false
+    },
+    {
+      "rank": 3,
+      "symbol": "MGM",
+      "score": 0.15,
+      "pct_change": -2.69,
+      "rvol": 0.22,
+      "near_hod": 0.9616,
       "above_vwap": false
     }
   ]

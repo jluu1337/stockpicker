@@ -1,0 +1,62 @@
+{
+  "run_ts_ct": "2026-01-13 08:57:50 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 1,
+  "picks": [
+    {
+      "symbol": "LYFT",
+      "last": 19.09,
+      "vwap": 19.18,
+      "hod": 19.52,
+      "lod": 19.0,
+      "near_hod": 0.978,
+      "volume_so_far": 1328542,
+      "atr_1m": 0.0552,
+      "pct_change": -2.85,
+      "rvol": 0.09,
+      "orh": 19.52,
+      "orl": 19.22,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 19.49,
+      "vs_open": -2.05,
+      "is_green_since_open": false,
+      "shares_float": 346514950,
+      "market_cap": 7765064704,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.3
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "LYFT",
+      "score": 0.3,
+      "pct_change": -2.85,
+      "rvol": 0.09,
+      "near_hod": 0.978,
+      "above_vwap": false
+    }
+  ]
+}

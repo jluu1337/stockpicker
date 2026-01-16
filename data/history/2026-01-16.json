@@ -1,0 +1,63 @@
+{
+  "run_ts_ct": "2026-01-16 08:55:50 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 1,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 33.38,
+      "vwap": 33.57,
+      "hod": 35.19,
+      "lod": 33.12,
+      "near_hod": 0.9484,
+      "volume_so_far": 2680681,
+      "atr_1m": 0.1448,
+      "pct_change": -5.85,
+      "rvol": 0.19,
+      "orh": 35.19,
+      "orl": 33.66,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 35.01,
+      "vs_open": -4.67,
+      "is_green_since_open": false,
+      "shares_float": 484312739,
+      "market_cap": 16605690880,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.3
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 0.3,
+      "pct_change": -5.85,
+      "rvol": 0.19,
+      "near_hod": 0.9484,
+      "above_vwap": false
+    }
+  ]
+}

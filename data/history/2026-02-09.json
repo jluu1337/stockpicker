@@ -1,0 +1,210 @@
+{
+  "run_ts_ct": "2026-02-09 09:35:05 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 3,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 27.22,
+      "vwap": 26.99,
+      "hod": 27.24,
+      "lod": 26.71,
+      "near_hod": 0.9993,
+      "volume_so_far": 1522753,
+      "atr_1m": 0.0434,
+      "pct_change": 2.25,
+      "rvol": 0.12,
+      "orh": 27.01,
+      "orl": 26.71,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 27.14,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 26.85,
+      "vs_open": 1.38,
+      "is_green_since_open": true,
+      "shares_float": 484317717,
+      "market_cap": 13529456640,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          27.01,
+          27.02
+        ],
+        "stop": 26.71,
+        "target_1": 27.32,
+        "target_2": 27.63,
+        "target_3": 27.78,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $27.01. Stop below VWAP/ORL at $26.71. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 37,
+        "entry_price": 27.01,
+        "stop_price": 26.71,
+        "risk_per_share": 0.31,
+        "total_risk": 11.38,
+        "max_risk_percent": 3.0,
+        "profit_t1": 11.38,
+        "profit_t2": 22.76,
+        "profit_t3": 28.45,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.845
+    },
+    {
+      "symbol": "COIN",
+      "last": 164.37,
+      "vwap": 162.67,
+      "hod": 165.75,
+      "lod": 159.01,
+      "near_hod": 0.9917,
+      "volume_so_far": 2083971,
+      "atr_1m": 0.4431,
+      "pct_change": -1.0,
+      "rvol": 0.21,
+      "orh": 161.7,
+      "orl": 159.67,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 163.45,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 160.03,
+      "vs_open": 2.71,
+      "is_green_since_open": true,
+      "shares_float": 225575925,
+      "market_cap": 44449681408,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          161.7,
+          161.77
+        ],
+        "stop": 159.63,
+        "target_1": 163.84,
+        "target_2": 165.95,
+        "target_3": 167.0,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $161.70. Stop below VWAP/ORL at $159.63. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 6,
+        "entry_price": 161.73,
+        "stop_price": 159.63,
+        "risk_per_share": 2.11,
+        "total_risk": 12.64,
+        "max_risk_percent": 3.0,
+        "profit_t1": 12.64,
+        "profit_t2": 25.29,
+        "profit_t3": 31.61,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.37
+    },
+    {
+      "symbol": "LYFT",
+      "last": 16.77,
+      "vwap": 16.65,
+      "hod": 16.83,
+      "lod": 16.42,
+      "near_hod": 0.9964,
+      "volume_so_far": 1498077,
+      "atr_1m": 0.0263,
+      "pct_change": 1.79,
+      "rvol": 0.11,
+      "orh": 16.63,
+      "orl": 16.42,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 16.74,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 16.44,
+      "vs_open": 2.04,
+      "is_green_since_open": true,
+      "shares_float": 346522937,
+      "market_cap": 6818056192,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          16.63,
+          16.63
+        ],
+        "stop": 16.42,
+        "target_1": 16.85,
+        "target_2": 17.06,
+        "target_3": 17.17,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $16.63. Stop below VWAP/ORL at $16.42. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 60,
+        "entry_price": 16.63,
+        "stop_price": 16.42,
+        "risk_per_share": 0.21,
+        "total_risk": 12.88,
+        "max_risk_percent": 3.0,
+        "profit_t1": 12.88,
+        "profit_t2": 25.75,
+        "profit_t3": 32.19,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.345
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 0.845,
+      "pct_change": 2.25,
+      "rvol": 0.12,
+      "near_hod": 0.9993,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "COIN",
+      "score": 0.37,
+      "pct_change": -1.0,
+      "rvol": 0.21,
+      "near_hod": 0.9917,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "LYFT",
+      "score": 0.345,
+      "pct_change": 1.79,
+      "rvol": 0.11,
+      "near_hod": 0.9964,
+      "above_vwap": true
+    }
+  ]
+}

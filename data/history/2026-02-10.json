@@ -1,0 +1,195 @@
+{
+  "run_ts_ct": "2026-02-10 09:46:09 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 3,
+  "picks": [
+    {
+      "symbol": "LYFT",
+      "last": 16.92,
+      "vwap": 16.78,
+      "hod": 17.0,
+      "lod": 16.5,
+      "near_hod": 0.9956,
+      "volume_so_far": 2793954,
+      "atr_1m": 0.0299,
+      "pct_change": 1.96,
+      "rvol": 0.21,
+      "orh": 16.73,
+      "orl": 16.5,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 16.92,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 16.6,
+      "vs_open": 1.96,
+      "is_green_since_open": true,
+      "shares_float": 346522937,
+      "market_cap": 6879022080,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          16.73,
+          16.73
+        ],
+        "stop": 16.5,
+        "target_1": 16.97,
+        "target_2": 17.2,
+        "target_3": 17.32,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $16.73. Stop below VWAP/ORL at $16.50. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 59,
+        "entry_price": 16.73,
+        "stop_price": 16.5,
+        "risk_per_share": 0.24,
+        "total_risk": 13.88,
+        "max_risk_percent": 3.0,
+        "profit_t1": 13.88,
+        "profit_t2": 27.76,
+        "profit_t3": 34.7,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.845
+    },
+    {
+      "symbol": "DKNG",
+      "last": 27.11,
+      "vwap": 27.3,
+      "hod": 27.63,
+      "lod": 26.97,
+      "near_hod": 0.9814,
+      "volume_so_far": 3583788,
+      "atr_1m": 0.0396,
+      "pct_change": -0.42,
+      "rvol": 0.28,
+      "orh": 27.63,
+      "orl": 27.08,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 27.26,
+      "vs_open": -0.53,
+      "is_green_since_open": false,
+      "shares_float": 484317717,
+      "market_cap": 13494612992,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.42
+    },
+    {
+      "symbol": "COIN",
+      "last": 165.77,
+      "vwap": 164.55,
+      "hod": 167.25,
+      "lod": 161.86,
+      "near_hod": 0.9912,
+      "volume_so_far": 1990063,
+      "atr_1m": 0.5942,
+      "pct_change": -0.64,
+      "rvol": 0.2,
+      "orh": 164.24,
+      "orl": 161.86,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 165.55,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 162.56,
+      "vs_open": 1.98,
+      "is_green_since_open": true,
+      "shares_float": 225575925,
+      "market_cap": 44703838208,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          164.24,
+          164.33
+        ],
+        "stop": 161.8,
+        "target_1": 166.77,
+        "target_2": 169.25,
+        "target_3": 170.49,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $164.24. Stop below VWAP/ORL at $161.80. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 6,
+        "entry_price": 164.28,
+        "stop_price": 161.8,
+        "risk_per_share": 2.48,
+        "total_risk": 14.9,
+        "max_risk_percent": 3.0,
+        "profit_t1": 14.9,
+        "profit_t2": 29.81,
+        "profit_t3": 37.26,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.145
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "LYFT",
+      "score": 0.845,
+      "pct_change": 1.96,
+      "rvol": 0.21,
+      "near_hod": 0.9956,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "DKNG",
+      "score": 0.42,
+      "pct_change": -0.42,
+      "rvol": 0.28,
+      "near_hod": 0.9814,
+      "above_vwap": false
+    },
+    {
+      "rank": 3,
+      "symbol": "COIN",
+      "score": 0.145,
+      "pct_change": -0.64,
+      "rvol": 0.2,
+      "near_hod": 0.9912,
+      "above_vwap": true
+    }
+  ]
+}

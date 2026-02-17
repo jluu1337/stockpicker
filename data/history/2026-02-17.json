@@ -1,0 +1,196 @@
+{
+  "run_ts_ct": "2026-02-17 09:32:43 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 3,
+  "picks": [
+    {
+      "symbol": "LYFT",
+      "last": 13.22,
+      "vwap": 13.2,
+      "hod": 13.38,
+      "lod": 13.07,
+      "near_hod": 0.9877,
+      "volume_so_far": 1640315,
+      "atr_1m": 0.0299,
+      "pct_change": -0.31,
+      "rvol": 0.11,
+      "orh": 13.38,
+      "orl": 13.1,
+      "above_vwap": true,
+      "vwap_cross": true,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.23,
+      "vs_open": -0.15,
+      "is_green_since_open": false,
+      "shares_float": 345294647,
+      "market_cap": 5277455360,
+      "levels": {
+        "setup_type": "VWAP Reclaim",
+        "buy_area": [
+          13.2,
+          13.21
+        ],
+        "stop": 13.19,
+        "target_1": 13.22,
+        "target_2": 13.23,
+        "target_3": 13.38,
+        "risk_reward": 1.0,
+        "explanation": "VWAP Reclaim: Price reclaimed VWAP $13.20 from below. Stop below VWAP at $13.19. Targeting 1R/2R/HOD retest.",
+        "risk_flags": [
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 75,
+        "entry_price": 13.21,
+        "stop_price": 13.19,
+        "risk_per_share": 0.01,
+        "total_risk": 0.78,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.78,
+        "profit_t2": 1.57,
+        "profit_t3": 13.12,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.67
+    },
+    {
+      "symbol": "COIN",
+      "last": 162.69,
+      "vwap": 161.14,
+      "hod": 166.59,
+      "lod": 158.4,
+      "near_hod": 0.9766,
+      "volume_so_far": 3028769,
+      "atr_1m": 0.7553,
+      "pct_change": -1.27,
+      "rvol": 0.29,
+      "orh": 166.59,
+      "orl": 160.61,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 161.45,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 162.48,
+      "vs_open": 0.13,
+      "is_green_since_open": true,
+      "shares_float": 220122498,
+      "market_cap": 43750596608,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          161.53,
+          161.68
+        ],
+        "stop": 161.3,
+        "target_1": 161.9,
+        "target_2": 162.21,
+        "target_3": 166.78,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $161.45. Stop below pullback at $161.30. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 6,
+        "entry_price": 161.6,
+        "stop_price": 161.3,
+        "risk_per_share": 0.3,
+        "total_risk": 1.81,
+        "max_risk_percent": 3.0,
+        "profit_t1": 1.81,
+        "profit_t2": 3.63,
+        "profit_t3": 31.07,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.645
+    },
+    {
+      "symbol": "DKNG",
+      "last": 21.22,
+      "vwap": 21.65,
+      "hod": 22.12,
+      "lod": 21.15,
+      "near_hod": 0.9591,
+      "volume_so_far": 2604231,
+      "atr_1m": 0.0595,
+      "pct_change": -2.66,
+      "rvol": 0.19,
+      "orh": 22.0,
+      "orl": 21.49,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 21.76,
+      "vs_open": -2.48,
+      "is_green_since_open": false,
+      "shares_float": 479488351,
+      "market_cap": 10567709696,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.0
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "LYFT",
+      "score": 0.67,
+      "pct_change": -0.31,
+      "rvol": 0.11,
+      "near_hod": 0.9877,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "COIN",
+      "score": 0.645,
+      "pct_change": -1.27,
+      "rvol": 0.29,
+      "near_hod": 0.9766,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "DKNG",
+      "score": 0.0,
+      "pct_change": -2.66,
+      "rvol": 0.19,
+      "near_hod": 0.9591,
+      "above_vwap": false
+    }
+  ]
+}

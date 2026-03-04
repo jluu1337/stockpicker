@@ -1,0 +1,126 @@
+{
+  "run_ts_ct": "2026-03-04 09:21:54 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 2,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 25.02,
+      "vwap": 24.96,
+      "hod": 25.38,
+      "lod": 24.42,
+      "near_hod": 0.986,
+      "volume_so_far": 3404967,
+      "atr_1m": 0.075,
+      "pct_change": 2.6,
+      "rvol": 0.24,
+      "orh": 24.81,
+      "orl": 24.42,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 24.99,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 24.53,
+      "vs_open": 2.02,
+      "is_green_since_open": true,
+      "shares_float": 478837602,
+      "market_cap": 12456757248,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          24.81,
+          24.82
+        ],
+        "stop": 24.41,
+        "target_1": 25.22,
+        "target_2": 25.62,
+        "target_3": 25.82,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $24.81. Stop below VWAP/ORL at $24.41. Targeting 1R/2R/HOD extension.",
+        "risk_flags": []
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 40,
+        "entry_price": 24.82,
+        "stop_price": 24.41,
+        "risk_per_share": 0.4,
+        "total_risk": 16.12,
+        "max_risk_percent": 3.0,
+        "profit_t1": 16.12,
+        "profit_t2": 32.25,
+        "profit_t3": 40.31,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 1.0
+    },
+    {
+      "symbol": "LYFT",
+      "last": 13.33,
+      "vwap": 13.34,
+      "hod": 13.58,
+      "lod": 13.22,
+      "near_hod": 0.9816,
+      "volume_so_far": 2318800,
+      "atr_1m": 0.0292,
+      "pct_change": 0.92,
+      "rvol": 0.15,
+      "orh": 13.58,
+      "orl": 13.34,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.41,
+      "vs_open": -0.63,
+      "is_green_since_open": false,
+      "shares_float": 321173307,
+      "market_cap": 5331367936,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.0
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 1.0,
+      "pct_change": 2.6,
+      "rvol": 0.24,
+      "near_hod": 0.986,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LYFT",
+      "score": 0.0,
+      "pct_change": 0.92,
+      "rvol": 0.15,
+      "near_hod": 0.9816,
+      "above_vwap": false
+    }
+  ]
+}

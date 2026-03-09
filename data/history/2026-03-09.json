@@ -1,0 +1,343 @@
+{
+  "run_ts_ct": "2026-03-09 10:37:34 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "LCID",
+      "last": 10.09,
+      "vwap": 9.9,
+      "hod": 10.14,
+      "lod": 9.53,
+      "near_hod": 0.9956,
+      "volume_so_far": 2461483,
+      "atr_1m": 0.0197,
+      "pct_change": 3.27,
+      "rvol": 0.33,
+      "orh": 9.73,
+      "orl": 9.53,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 10.07,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 9.55,
+      "vs_open": 5.65,
+      "is_green_since_open": true,
+      "shares_float": 133872121,
+      "market_cap": 3304695808,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          9.73,
+          9.73
+        ],
+        "stop": 9.53,
+        "target_1": 9.93,
+        "target_2": 10.14,
+        "target_3": 10.24,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $9.73. Stop below VWAP/ORL at $9.53. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 102,
+        "entry_price": 9.73,
+        "stop_price": 9.53,
+        "risk_per_share": 0.2,
+        "total_risk": 20.75,
+        "max_risk_percent": 3.0,
+        "profit_t1": 20.75,
+        "profit_t2": 41.5,
+        "profit_t3": 51.88,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.7825
+    },
+    {
+      "symbol": "LYFT",
+      "last": 13.53,
+      "vwap": 13.41,
+      "hod": 13.64,
+      "lod": 13.16,
+      "near_hod": 0.9923,
+      "volume_so_far": 6343933,
+      "atr_1m": 0.0234,
+      "pct_change": 0.45,
+      "rvol": 0.41,
+      "orh": 13.64,
+      "orl": 13.29,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 13.52,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.34,
+      "vs_open": 1.42,
+      "is_green_since_open": true,
+      "shares_float": 321093686,
+      "market_cap": 5405248512,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          13.41,
+          13.41
+        ],
+        "stop": 13.4,
+        "target_1": 13.42,
+        "target_2": 13.43,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $13.53 above VWAP $13.41. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 74,
+        "entry_price": 13.41,
+        "stop_price": 13.4,
+        "risk_per_share": 0.01,
+        "total_risk": 0.56,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.56,
+        "profit_t2": 1.13,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.7325
+    },
+    {
+      "symbol": "DKNG",
+      "last": 24.8,
+      "vwap": 24.49,
+      "hod": 24.9,
+      "lod": 24.12,
+      "near_hod": 0.9958,
+      "volume_so_far": 3242626,
+      "atr_1m": 0.0381,
+      "pct_change": -1.22,
+      "rvol": 0.23,
+      "orh": 24.9,
+      "orl": 24.57,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 24.76,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 24.74,
+      "vs_open": 0.22,
+      "is_green_since_open": true,
+      "shares_float": 478817883,
+      "market_cap": 12352225280,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          24.49,
+          24.5
+        ],
+        "stop": 24.48,
+        "target_1": 24.51,
+        "target_2": 24.52,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $24.80 above VWAP $24.49. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 40,
+        "entry_price": 24.5,
+        "stop_price": 24.48,
+        "risk_per_share": 0.01,
+        "total_risk": 0.49,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.49,
+        "profit_t2": 0.99,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.47
+    },
+    {
+      "symbol": "PENN",
+      "last": 14.16,
+      "vwap": 13.93,
+      "hod": 14.26,
+      "lod": 13.68,
+      "near_hod": 0.9933,
+      "volume_so_far": 1370463,
+      "atr_1m": 0.0192,
+      "pct_change": -2.31,
+      "rvol": 0.31,
+      "orh": 14.18,
+      "orl": 13.77,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 14.16,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 14.18,
+      "vs_open": -0.11,
+      "is_green_since_open": false,
+      "shares_float": 124356873,
+      "market_cap": 2068156800,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          13.93,
+          13.94
+        ],
+        "stop": 13.93,
+        "target_1": 13.94,
+        "target_2": 13.95,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $14.16 above VWAP $13.93. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 71,
+        "entry_price": 13.93,
+        "stop_price": 13.93,
+        "risk_per_share": 0.01,
+        "total_risk": 0.44,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.44,
+        "profit_t2": 0.89,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.2525
+    },
+    {
+      "symbol": "MGM",
+      "last": 34.14,
+      "vwap": 34.01,
+      "hod": 34.75,
+      "lod": 33.44,
+      "near_hod": 0.9824,
+      "volume_so_far": 1670983,
+      "atr_1m": 0.0488,
+      "pct_change": -3.97,
+      "rvol": 0.36,
+      "orh": 34.75,
+      "orl": 34.28,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 34.14,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 34.75,
+      "vs_open": -1.76,
+      "is_green_since_open": false,
+      "shares_float": 186529690,
+      "market_cap": 9336141824,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          34.01,
+          34.01
+        ],
+        "stop": 33.99,
+        "target_1": 34.02,
+        "target_2": 34.04,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $34.14 above VWAP $34.01. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 29,
+        "entry_price": 34.01,
+        "stop_price": 33.99,
+        "risk_per_share": 0.02,
+        "total_risk": 0.46,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.46,
+        "profit_t2": 0.92,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.2025
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "LCID",
+      "score": 0.7825,
+      "pct_change": 3.27,
+      "rvol": 0.33,
+      "near_hod": 0.9956,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LYFT",
+      "score": 0.7325,
+      "pct_change": 0.45,
+      "rvol": 0.41,
+      "near_hod": 0.9923,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "DKNG",
+      "score": 0.47,
+      "pct_change": -1.22,
+      "rvol": 0.23,
+      "near_hod": 0.9958,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "PENN",
+      "score": 0.2525,
+      "pct_change": -2.31,
+      "rvol": 0.31,
+      "near_hod": 0.9933,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "MGM",
+      "score": 0.2025,
+      "pct_change": -3.97,
+      "rvol": 0.36,
+      "near_hod": 0.9824,
+      "above_vwap": true
+    }
+  ]
+}

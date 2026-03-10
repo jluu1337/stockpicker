@@ -1,0 +1,262 @@
+{
+  "run_ts_ct": "2026-03-10 10:41:32 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 4,
+  "picks": [
+    {
+      "symbol": "LCID",
+      "last": 10.68,
+      "vwap": 10.85,
+      "hod": 11.08,
+      "lod": 10.54,
+      "near_hod": 0.9634,
+      "volume_so_far": 2672755,
+      "atr_1m": 0.0179,
+      "pct_change": 3.64,
+      "rvol": 0.36,
+      "orh": 10.71,
+      "orl": 10.54,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 10.62,
+      "vs_open": 0.52,
+      "is_green_since_open": true,
+      "shares_float": 133872121,
+      "market_cap": 3498029568,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod"
+        ]
+      },
+      "position": null,
+      "score": 0.65
+    },
+    {
+      "symbol": "PENN",
+      "last": 14.53,
+      "vwap": 14.4,
+      "hod": 14.65,
+      "lod": 14.15,
+      "near_hod": 0.9918,
+      "volume_so_far": 1546892,
+      "atr_1m": 0.0254,
+      "pct_change": -3.16,
+      "rvol": 0.35,
+      "orh": 14.65,
+      "orl": 14.38,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 14.52,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 14.6,
+      "vs_open": -0.45,
+      "is_green_since_open": false,
+      "shares_float": 124356873,
+      "market_cap": 1941095040,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          14.4,
+          14.4
+        ],
+        "stop": 14.39,
+        "target_1": 14.41,
+        "target_2": 14.42,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $14.53 above VWAP $14.40. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 69,
+        "entry_price": 14.4,
+        "stop_price": 14.39,
+        "risk_per_share": 0.01,
+        "total_risk": 0.57,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.57,
+        "profit_t2": 1.14,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.4233
+    },
+    {
+      "symbol": "LYFT",
+      "last": 13.53,
+      "vwap": 13.52,
+      "hod": 13.84,
+      "lod": 13.42,
+      "near_hod": 0.9783,
+      "volume_so_far": 3412175,
+      "atr_1m": 0.0157,
+      "pct_change": -0.64,
+      "rvol": 0.22,
+      "orh": 13.84,
+      "orl": 13.51,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 13.53,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.73,
+      "vs_open": -1.42,
+      "is_green_since_open": false,
+      "shares_float": 321093686,
+      "market_cap": 5405248512,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          13.52,
+          13.52
+        ],
+        "stop": 13.51,
+        "target_1": 13.52,
+        "target_2": 13.53,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $13.53 above VWAP $13.52. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 73,
+        "entry_price": 13.52,
+        "stop_price": 13.51,
+        "risk_per_share": 0.01,
+        "total_risk": 0.37,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.37,
+        "profit_t2": 0.75,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.37
+    },
+    {
+      "symbol": "DKNG",
+      "last": 24.79,
+      "vwap": 24.62,
+      "hod": 25.1,
+      "lod": 24.36,
+      "near_hod": 0.9876,
+      "volume_so_far": 3594500,
+      "atr_1m": 0.0339,
+      "pct_change": -1.24,
+      "rvol": 0.25,
+      "orh": 25.1,
+      "orl": 24.75,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 24.78,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 25.01,
+      "vs_open": -0.88,
+      "is_green_since_open": false,
+      "shares_float": 478817883,
+      "market_cap": 12339780608,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          24.62,
+          24.62
+        ],
+        "stop": 24.61,
+        "target_1": 24.63,
+        "target_2": 24.64,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $24.79 above VWAP $24.62. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 40,
+        "entry_price": 24.62,
+        "stop_price": 24.61,
+        "risk_per_share": 0.01,
+        "total_risk": 0.44,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.44,
+        "profit_t2": 0.88,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.3567
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "LCID",
+      "score": 0.65,
+      "pct_change": 3.64,
+      "rvol": 0.36,
+      "near_hod": 0.9634,
+      "above_vwap": false
+    },
+    {
+      "rank": 2,
+      "symbol": "PENN",
+      "score": 0.4233,
+      "pct_change": -3.16,
+      "rvol": 0.35,
+      "near_hod": 0.9918,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "LYFT",
+      "score": 0.37,
+      "pct_change": -0.64,
+      "rvol": 0.22,
+      "near_hod": 0.9783,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "DKNG",
+      "score": 0.3567,
+      "pct_change": -1.24,
+      "rvol": 0.25,
+      "near_hod": 0.9876,
+      "above_vwap": true
+    }
+  ]
+}

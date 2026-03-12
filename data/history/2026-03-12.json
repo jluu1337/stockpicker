@@ -1,0 +1,197 @@
+{
+  "run_ts_ct": "2026-03-12 10:37:59 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 3,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 26.2,
+      "vwap": 26.12,
+      "hod": 26.49,
+      "lod": 25.27,
+      "near_hod": 0.9892,
+      "volume_so_far": 4073714,
+      "atr_1m": 0.038,
+      "pct_change": 3.5,
+      "rvol": 0.28,
+      "orh": 25.57,
+      "orl": 25.27,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 26.16,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 25.41,
+      "vs_open": 3.13,
+      "is_green_since_open": true,
+      "shares_float": 478522088,
+      "market_cap": 13044128768,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          25.57,
+          25.58
+        ],
+        "stop": 25.27,
+        "target_1": 25.88,
+        "target_2": 26.19,
+        "target_3": 26.51,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $25.57. Stop below VWAP/ORL at $25.27. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 39,
+        "entry_price": 25.57,
+        "stop_price": 25.27,
+        "risk_per_share": 0.31,
+        "total_risk": 11.96,
+        "max_risk_percent": 3.0,
+        "profit_t1": 11.96,
+        "profit_t2": 23.92,
+        "profit_t3": 36.51,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.845
+    },
+    {
+      "symbol": "LCID",
+      "last": 10.03,
+      "vwap": 9.89,
+      "hod": 10.65,
+      "lod": 9.71,
+      "near_hod": 0.9419,
+      "volume_so_far": 5049133,
+      "atr_1m": 0.0381,
+      "pct_change": -5.73,
+      "rvol": 0.67,
+      "orh": 10.65,
+      "orl": 10.17,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 9.94,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 10.6,
+      "vs_open": -5.38,
+      "is_green_since_open": false,
+      "shares_float": 133872121,
+      "market_cap": 3286640128,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          9.89,
+          9.9
+        ],
+        "stop": 9.88,
+        "target_1": 9.91,
+        "target_2": 9.92,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $10.03 above VWAP $9.89. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 101,
+        "entry_price": 9.9,
+        "stop_price": 9.88,
+        "risk_per_share": 0.01,
+        "total_risk": 1.25,
+        "max_risk_percent": 3.0,
+        "profit_t1": 1.25,
+        "profit_t2": 2.5,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.22
+    },
+    {
+      "symbol": "LYFT",
+      "last": 13.03,
+      "vwap": 13.18,
+      "hod": 13.48,
+      "lod": 13.02,
+      "near_hod": 0.967,
+      "volume_so_far": 4246730,
+      "atr_1m": 0.0132,
+      "pct_change": -1.15,
+      "rvol": 0.27,
+      "orh": 13.48,
+      "orl": 13.2,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.22,
+      "vs_open": -1.44,
+      "is_green_since_open": false,
+      "shares_float": 321093686,
+      "market_cap": 5203534848,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.195
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 0.845,
+      "pct_change": 3.5,
+      "rvol": 0.28,
+      "near_hod": 0.9892,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LCID",
+      "score": 0.22,
+      "pct_change": -5.73,
+      "rvol": 0.67,
+      "near_hod": 0.9419,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "LYFT",
+      "score": 0.195,
+      "pct_change": -1.15,
+      "rvol": 0.27,
+      "near_hod": 0.967,
+      "above_vwap": false
+    }
+  ]
+}

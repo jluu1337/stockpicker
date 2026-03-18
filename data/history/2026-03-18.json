@@ -1,0 +1,180 @@
+{
+  "run_ts_ct": "2026-03-18 10:50:22 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 3,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 25.92,
+      "vwap": 25.61,
+      "hod": 25.98,
+      "lod": 25.01,
+      "near_hod": 0.9979,
+      "volume_so_far": 10018119,
+      "atr_1m": 0.0417,
+      "pct_change": 2.63,
+      "rvol": 0.68,
+      "orh": 25.53,
+      "orl": 25.01,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 25.91,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 25.12,
+      "vs_open": 3.2,
+      "is_green_since_open": true,
+      "shares_float": 478467859,
+      "market_cap": 12904752128,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          25.53,
+          25.54
+        ],
+        "stop": 25.01,
+        "target_1": 26.06,
+        "target_2": 26.59,
+        "target_3": 26.85,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $25.53. Stop below VWAP/ORL at $25.01. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 39,
+        "entry_price": 25.53,
+        "stop_price": 25.01,
+        "risk_per_share": 0.53,
+        "total_risk": 20.56,
+        "max_risk_percent": 3.0,
+        "profit_t1": 20.56,
+        "profit_t2": 41.13,
+        "profit_t3": 51.41,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.845
+    },
+    {
+      "symbol": "LCID",
+      "last": 10.16,
+      "vwap": 10.31,
+      "hod": 10.65,
+      "lod": 10.14,
+      "near_hod": 0.954,
+      "volume_so_far": 5790781,
+      "atr_1m": 0.0105,
+      "pct_change": -1.17,
+      "rvol": 0.78,
+      "orh": 10.65,
+      "orl": 10.42,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 10.42,
+      "vs_open": -2.5,
+      "is_green_since_open": false,
+      "shares_float": 133872121,
+      "market_cap": 3329272064,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "not_near_hod",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.35
+    },
+    {
+      "symbol": "LYFT",
+      "last": 13.68,
+      "vwap": 13.72,
+      "hod": 13.99,
+      "lod": 13.61,
+      "near_hod": 0.9775,
+      "volume_so_far": 4423953,
+      "atr_1m": 0.0116,
+      "pct_change": -2.67,
+      "rvol": 0.28,
+      "orh": 13.99,
+      "orl": 13.89,
+      "above_vwap": false,
+      "vwap_cross": false,
+      "pullback_low": null,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.9,
+      "vs_open": -1.62,
+      "is_green_since_open": false,
+      "shares_float": 321089705,
+      "market_cap": 5461157888,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": null,
+        "stop": null,
+        "target_1": null,
+        "target_2": null,
+        "target_3": null,
+        "risk_reward": null,
+        "explanation": "No clean setup: Price below VWAP. Skip or wait for reclaim.",
+        "risk_flags": [
+          "below_vwap",
+          "fading_from_open"
+        ]
+      },
+      "position": null,
+      "score": 0.0
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 0.845,
+      "pct_change": 2.63,
+      "rvol": 0.68,
+      "near_hod": 0.9979,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LCID",
+      "score": 0.35,
+      "pct_change": -1.17,
+      "rvol": 0.78,
+      "near_hod": 0.954,
+      "above_vwap": false
+    },
+    {
+      "rank": 3,
+      "symbol": "LYFT",
+      "score": 0.0,
+      "pct_change": -2.67,
+      "rvol": 0.28,
+      "near_hod": 0.9775,
+      "above_vwap": false
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "run_ts_ct": "2026-07-09 12:03:54 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "PENN",
+      "last": 20.94,
+      "vwap": 20.81,
+      "hod": 21.07,
+      "lod": 20.33,
+      "near_hod": 0.994,
+      "volume_so_far": 1121518,
+      "atr_1m": 0.0082,
+      "pct_change": 4.2,
+      "rvol": 0.28,
+      "orh": 20.86,
+      "orl": 20.33,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 20.91,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 20.53,
+      "vs_open": 2.02,
+      "is_green_since_open": true,
+      "shares_float": 124908789,
+      "market_cap": 2803349248,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          20.86,
+          20.86
+        ],
+        "stop": 20.33,
+        "target_1": 21.39,
+        "target_2": 21.92,
+        "target_3": 22.19,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $20.86. Stop below VWAP/ORL at $20.33. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 47,
+        "entry_price": 20.86,
+        "stop_price": 20.33,
+        "risk_per_share": 0.53,
+        "total_risk": 24.97,
+        "max_risk_percent": 3.0,
+        "profit_t1": 24.97,
+        "profit_t2": 49.94,
+        "profit_t3": 62.43,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.9
+    },
+    {
+      "symbol": "LYFT",
+      "last": 15.54,
+      "vwap": 15.47,
+      "hod": 15.69,
+      "lod": 14.99,
+      "near_hod": 0.9904,
+      "volume_so_far": 3919246,
+      "atr_1m": 0.0107,
+      "pct_change": 2.37,
+      "rvol": 0.28,
+      "orh": 15.16,
+      "orl": 14.99,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 15.53,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 15.05,
+      "vs_open": 3.26,
+      "is_green_since_open": true,
+      "shares_float": 341254863,
+      "market_cap": 5900266496,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          15.16,
+          15.16
+        ],
+        "stop": 14.99,
+        "target_1": 15.33,
+        "target_2": 15.5,
+        "target_3": 15.7,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $15.16. Stop below VWAP/ORL at $14.99. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 65,
+        "entry_price": 15.16,
+        "stop_price": 14.99,
+        "risk_per_share": 0.17,
+        "total_risk": 11.17,
+        "max_risk_percent": 3.0,
+        "profit_t1": 11.17,
+        "profit_t2": 22.34,
+        "profit_t3": 34.75,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.65
+    },
+    {
+      "symbol": "ROKU",
+      "last": 140.18,
+      "vwap": 139.94,
+      "hod": 140.63,
+      "lod": 138.81,
+      "near_hod": 0.9968,
+      "volume_so_far": 1128372,
+      "atr_1m": 0.0421,
+      "pct_change": 0.66,
+      "rvol": 0.26,
+      "orh": 139.2,
+      "orl": 138.81,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 140.03,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 139.0,
+      "vs_open": 0.85,
+      "is_green_since_open": true,
+      "shares_float": 130100834,
+      "market_cap": 20793862144,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          139.2,
+          139.21
+        ],
+        "stop": 138.81,
+        "target_1": 139.6,
+        "target_2": 140.0,
+        "target_3": 140.65,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $139.20. Stop below VWAP/ORL at $138.81. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 7,
+        "entry_price": 139.2,
+        "stop_price": 138.81,
+        "risk_per_share": 0.4,
+        "total_risk": 2.78,
+        "max_risk_percent": 3.0,
+        "profit_t1": 2.78,
+        "profit_t2": 5.56,
+        "profit_t3": 10.14,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.5
+    },
+    {
+      "symbol": "LCID",
+      "last": 5.92,
+      "vwap": 5.84,
+      "hod": 5.98,
+      "lod": 5.66,
+      "near_hod": 0.99,
+      "volume_so_far": 4965127,
+      "atr_1m": 0.0135,
+      "pct_change": 1.2,
+      "rvol": 0.27,
+      "orh": 5.78,
+      "orl": 5.66,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 5.9,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 5.76,
+      "vs_open": 2.75,
+      "is_green_since_open": true,
+      "shares_float": 172278868,
+      "market_cap": 2306456832,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          5.78,
+          5.78
+        ],
+        "stop": 5.66,
+        "target_1": 5.9,
+        "target_2": 6.02,
+        "target_3": 6.09,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $5.78. Stop below VWAP/ORL at $5.66. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 172,
+        "entry_price": 5.78,
+        "stop_price": 5.66,
+        "risk_per_share": 0.12,
+        "total_risk": 20.96,
+        "max_risk_percent": 3.0,
+        "profit_t1": 20.96,
+        "profit_t2": 41.92,
+        "profit_t3": 52.4,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.45
+    },
+    {
+      "symbol": "COIN",
+      "last": 159.67,
+      "vwap": 158.69,
+      "hod": 161.06,
+      "lod": 154.78,
+      "near_hod": 0.9914,
+      "volume_so_far": 2067010,
+      "atr_1m": 0.1882,
+      "pct_change": -0.19,
+      "rvol": 0.22,
+      "orh": 157.51,
+      "orl": 154.78,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 159.43,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 156.27,
+      "vs_open": 2.18,
+      "is_green_since_open": true,
+      "shares_float": 219346895,
+      "market_cap": 42066780160,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          157.51,
+          157.54
+        ],
+        "stop": 154.76,
+        "target_1": 160.29,
+        "target_2": 163.05,
+        "target_3": 164.43,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $157.51. Stop below VWAP/ORL at $154.76. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 6,
+        "entry_price": 157.52,
+        "stop_price": 154.76,
+        "risk_per_share": 2.76,
+        "total_risk": 16.58,
+        "max_risk_percent": 3.0,
+        "profit_t1": 16.58,
+        "profit_t2": 33.16,
+        "profit_t3": 41.44,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.25
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "PENN",
+      "score": 0.9,
+      "pct_change": 4.2,
+      "rvol": 0.28,
+      "near_hod": 0.994,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LYFT",
+      "score": 0.65,
+      "pct_change": 2.37,
+      "rvol": 0.28,
+      "near_hod": 0.9904,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "ROKU",
+      "score": 0.5,
+      "pct_change": 0.66,
+      "rvol": 0.26,
+      "near_hod": 0.9968,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "LCID",
+      "score": 0.45,
+      "pct_change": 1.2,
+      "rvol": 0.27,
+      "near_hod": 0.99,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "COIN",
+      "score": 0.25,
+      "pct_change": -0.19,
+      "rvol": 0.22,
+      "near_hod": 0.9914,
+      "above_vwap": true
+    },
+    {
+      "rank": 6,
+      "symbol": "DKNG",
+      "score": 0.15,
+      "pct_change": -4.78,
+      "rvol": 0.37,
+      "near_hod": 0.9677,
+      "above_vwap": false
+    }
+  ]
+}

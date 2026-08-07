@@ -1,0 +1,273 @@
+{
+  "run_ts_ct": "2026-08-07 10:31:18 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 4,
+  "picks": [
+    {
+      "symbol": "DKNG",
+      "last": 23.7,
+      "vwap": 22.94,
+      "hod": 23.77,
+      "lod": 21.9,
+      "near_hod": 0.9968,
+      "volume_so_far": 12659105,
+      "atr_1m": 0.0777,
+      "pct_change": 10.59,
+      "rvol": 1.03,
+      "orh": 22.49,
+      "orl": 21.9,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 23.64,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 22.25,
+      "vs_open": 6.52,
+      "is_green_since_open": true,
+      "shares_float": 481269759,
+      "market_cap": 11770656768,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          22.49,
+          22.5
+        ],
+        "stop": 21.89,
+        "target_1": 23.1,
+        "target_2": 23.71,
+        "target_3": 24.02,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $22.49. Stop below VWAP/ORL at $21.89. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 44,
+        "entry_price": 22.5,
+        "stop_price": 21.89,
+        "risk_per_share": 0.61,
+        "total_risk": 26.78,
+        "max_risk_percent": 3.0,
+        "profit_t1": 26.78,
+        "profit_t2": 53.56,
+        "profit_t3": 66.95,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 1.0
+    },
+    {
+      "symbol": "LYFT",
+      "last": 17.08,
+      "vwap": 16.91,
+      "hod": 17.2,
+      "lod": 16.41,
+      "near_hod": 0.9933,
+      "volume_so_far": 7905933,
+      "atr_1m": 0.0357,
+      "pct_change": 3.92,
+      "rvol": 0.58,
+      "orh": 17.17,
+      "orl": 16.43,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 17.08,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 17.0,
+      "vs_open": 0.5,
+      "is_green_since_open": true,
+      "shares_float": 341391549,
+      "market_cap": 6494469632,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          16.91,
+          16.92
+        ],
+        "stop": 16.91,
+        "target_1": 16.93,
+        "target_2": 16.94,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $17.08 above VWAP $16.91. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 59,
+        "entry_price": 16.92,
+        "stop_price": 16.91,
+        "risk_per_share": 0.01,
+        "total_risk": 0.68,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.68,
+        "profit_t2": 1.37,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.5533
+    },
+    {
+      "symbol": "COIN",
+      "last": 151.87,
+      "vwap": 151.34,
+      "hod": 155.4,
+      "lod": 145.58,
+      "near_hod": 0.9773,
+      "volume_so_far": 3458296,
+      "atr_1m": 0.3062,
+      "pct_change": 3.93,
+      "rvol": 0.4,
+      "orh": 149.51,
+      "orl": 145.58,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 151.68,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 146.0,
+      "vs_open": 4.02,
+      "is_green_since_open": true,
+      "shares_float": 219723389,
+      "market_cap": 40067596288,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          151.71,
+          151.77
+        ],
+        "stop": 151.61,
+        "target_1": 151.86,
+        "target_2": 151.98,
+        "target_3": 155.48,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $151.68. Stop below pullback at $151.61. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 6,
+        "entry_price": 151.74,
+        "stop_price": 151.61,
+        "risk_per_share": 0.12,
+        "total_risk": 0.73,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.73,
+        "profit_t2": 1.47,
+        "profit_t3": 22.44,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.4333
+    },
+    {
+      "symbol": "LCID",
+      "last": 7.13,
+      "vwap": 7.11,
+      "hod": 7.23,
+      "lod": 6.9,
+      "near_hod": 0.9864,
+      "volume_so_far": 2903777,
+      "atr_1m": 0.0229,
+      "pct_change": 2.47,
+      "rvol": 0.15,
+      "orh": 7.2,
+      "orl": 7.01,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 7.12,
+      "source": "universe",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 7.12,
+      "vs_open": 0.16,
+      "is_green_since_open": true,
+      "shares_float": 173962279,
+      "market_cap": 2811690752,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          7.12,
+          7.13
+        ],
+        "stop": 7.12,
+        "target_1": 7.13,
+        "target_2": 7.14,
+        "target_3": 7.24,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $7.12. Stop below pullback at $7.12. Targeting 1R/2R/HOD extension.",
+        "risk_flags": []
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 140,
+        "entry_price": 7.12,
+        "stop_price": 7.12,
+        "risk_per_share": 0.01,
+        "total_risk": 1.28,
+        "max_risk_percent": 3.0,
+        "profit_t1": 1.28,
+        "profit_t2": 2.56,
+        "profit_t3": 15.56,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.1833
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "DKNG",
+      "score": 1.0,
+      "pct_change": 10.59,
+      "rvol": 1.03,
+      "near_hod": 0.9968,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "LYFT",
+      "score": 0.5533,
+      "pct_change": 3.92,
+      "rvol": 0.58,
+      "near_hod": 0.9933,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "COIN",
+      "score": 0.4333,
+      "pct_change": 3.93,
+      "rvol": 0.4,
+      "near_hod": 0.9773,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "LCID",
+      "score": 0.1833,
+      "pct_change": 2.47,
+      "rvol": 0.15,
+      "near_hod": 0.9864,
+      "above_vwap": true
+    }
+  ]
+}

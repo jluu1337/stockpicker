@@ -1,0 +1,386 @@
+{
+  "run_ts_ct": "2026-09-04 12:46:22 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "UCTT",
+      "last": 72.15,
+      "vwap": 71.81,
+      "hod": 73.16,
+      "lod": 68.37,
+      "near_hod": 0.9862,
+      "volume_so_far": 1032902,
+      "atr_1m": 0.105,
+      "pct_change": 9.12,
+      "rvol": 0.77,
+      "orh": 69.98,
+      "orl": 68.37,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 72.15,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 68.47,
+      "vs_open": 5.37,
+      "is_green_since_open": true,
+      "shares_float": 44468381,
+      "market_cap": 3266737664,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          69.98,
+          70.0
+        ],
+        "stop": 68.36,
+        "target_1": 71.62,
+        "target_2": 73.24,
+        "target_3": 74.06,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $69.98. Stop below VWAP/ORL at $68.36. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 14,
+        "entry_price": 69.99,
+        "stop_price": 68.36,
+        "risk_per_share": 1.63,
+        "total_risk": 22.8,
+        "max_risk_percent": 3.0,
+        "profit_t1": 22.8,
+        "profit_t2": 45.59,
+        "profit_t3": 56.99,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.765
+    },
+    {
+      "symbol": "AEHR",
+      "last": 84.21,
+      "vwap": 83.75,
+      "hod": 85.98,
+      "lod": 77.84,
+      "near_hod": 0.9794,
+      "volume_so_far": 2998561,
+      "atr_1m": 0.1432,
+      "pct_change": 9.85,
+      "rvol": 1.18,
+      "orh": 81.23,
+      "orl": 77.84,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 84.12,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 78.55,
+      "vs_open": 7.21,
+      "is_green_since_open": true,
+      "shares_float": 31271921,
+      "market_cap": 2746968064,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          84.13,
+          84.16
+        ],
+        "stop": 84.09,
+        "target_1": 84.21,
+        "target_2": 84.26,
+        "target_3": 86.02,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $84.12. Stop below pullback at $84.09. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 11,
+        "entry_price": 84.15,
+        "stop_price": 84.09,
+        "risk_per_share": 0.06,
+        "total_risk": 0.63,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.63,
+        "profit_t2": 1.26,
+        "profit_t3": 20.54,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.75
+    },
+    {
+      "symbol": "LULU",
+      "last": 101.42,
+      "vwap": 100.43,
+      "hod": 103.16,
+      "lod": 97.99,
+      "near_hod": 0.9831,
+      "volume_so_far": 24323922,
+      "atr_1m": 0.1889,
+      "pct_change": 1.77,
+      "rvol": 6.61,
+      "orh": 101.77,
+      "orl": 97.99,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 101.2,
+      "source": "most_actives",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 98.2,
+      "vs_open": 3.27,
+      "is_green_since_open": true,
+      "shares_float": 104557041,
+      "market_cap": 11512016896,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          101.22,
+          101.26
+        ],
+        "stop": 101.16,
+        "target_1": 101.31,
+        "target_2": 101.39,
+        "target_3": 103.21,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $101.20. Stop below pullback at $101.16. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 9,
+        "entry_price": 101.24,
+        "stop_price": 101.16,
+        "risk_per_share": 0.08,
+        "total_risk": 0.68,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.68,
+        "profit_t2": 1.36,
+        "profit_t3": 17.73,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.64
+    },
+    {
+      "symbol": "TTMI",
+      "last": 123.5,
+      "vwap": 122.92,
+      "hod": 124.34,
+      "lod": 118.3,
+      "near_hod": 0.9933,
+      "volume_so_far": 1245626,
+      "atr_1m": 0.1761,
+      "pct_change": 6.66,
+      "rvol": 0.44,
+      "orh": 121.77,
+      "orl": 118.3,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 123.47,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 119.77,
+      "vs_open": 3.12,
+      "is_green_since_open": true,
+      "shares_float": 103549505,
+      "market_cap": 13011110912,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          121.77,
+          121.8
+        ],
+        "stop": 118.28,
+        "target_1": 125.28,
+        "target_2": 128.78,
+        "target_3": 130.54,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $121.77. Stop below VWAP/ORL at $118.28. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 8,
+        "entry_price": 121.78,
+        "stop_price": 118.28,
+        "risk_per_share": 3.5,
+        "total_risk": 28.01,
+        "max_risk_percent": 3.0,
+        "profit_t1": 28.01,
+        "profit_t2": 56.01,
+        "profit_t3": 70.02,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.6
+    },
+    {
+      "symbol": "AXTI",
+      "last": 61.16,
+      "vwap": 60.45,
+      "hod": 62.5,
+      "lod": 56.01,
+      "near_hod": 0.9785,
+      "volume_so_far": 6674844,
+      "atr_1m": 0.0953,
+      "pct_change": 7.75,
+      "rvol": 0.65,
+      "orh": 58.31,
+      "orl": 56.01,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 61.16,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 57.55,
+      "vs_open": 6.27,
+      "is_green_since_open": true,
+      "shares_float": 61608463,
+      "market_cap": 4010372352,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          61.17,
+          61.19
+        ],
+        "stop": 61.14,
+        "target_1": 61.22,
+        "target_2": 61.25,
+        "target_3": 62.52,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $61.16. Stop below pullback at $61.14. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 16,
+        "entry_price": 61.18,
+        "stop_price": 61.14,
+        "risk_per_share": 0.04,
+        "total_risk": 0.61,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.61,
+        "profit_t2": 1.22,
+        "profit_t3": 21.54,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.54
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "UCTT",
+      "score": 0.765,
+      "pct_change": 9.12,
+      "rvol": 0.77,
+      "near_hod": 0.9862,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "AEHR",
+      "score": 0.75,
+      "pct_change": 9.85,
+      "rvol": 1.18,
+      "near_hod": 0.9794,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "LULU",
+      "score": 0.64,
+      "pct_change": 1.77,
+      "rvol": 6.61,
+      "near_hod": 0.9831,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "TTMI",
+      "score": 0.6,
+      "pct_change": 6.66,
+      "rvol": 0.44,
+      "near_hod": 0.9933,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "AXTI",
+      "score": 0.54,
+      "pct_change": 7.75,
+      "rvol": 0.65,
+      "near_hod": 0.9785,
+      "above_vwap": true
+    },
+    {
+      "rank": 6,
+      "symbol": "IREN",
+      "score": 0.54,
+      "pct_change": 6.01,
+      "rvol": 0.43,
+      "near_hod": 0.9983,
+      "above_vwap": true
+    },
+    {
+      "rank": 7,
+      "symbol": "SMTC",
+      "score": 0.485,
+      "pct_change": 6.74,
+      "rvol": 0.44,
+      "near_hod": 0.9732,
+      "above_vwap": true
+    },
+    {
+      "rank": 8,
+      "symbol": "NVTS",
+      "score": 0.405,
+      "pct_change": 5.25,
+      "rvol": 0.38,
+      "near_hod": 0.9962,
+      "above_vwap": true
+    },
+    {
+      "rank": 9,
+      "symbol": "MARA",
+      "score": 0.19,
+      "pct_change": -1.78,
+      "rvol": 0.38,
+      "near_hod": 0.983,
+      "above_vwap": false
+    },
+    {
+      "rank": 10,
+      "symbol": "PL",
+      "score": 0.18,
+      "pct_change": -5.68,
+      "rvol": 1.74,
+      "near_hod": 0.9456,
+      "above_vwap": false
+    }
+  ]
+}

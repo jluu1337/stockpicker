@@ -1,0 +1,388 @@
+{
+  "run_ts_ct": "2026-09-29 14:37:00 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "IOVA",
+      "last": 14.81,
+      "vwap": 14.29,
+      "hod": 15.3,
+      "lod": 12.78,
+      "near_hod": 0.9683,
+      "volume_so_far": 66004532,
+      "atr_1m": 0.0446,
+      "pct_change": 34.44,
+      "rvol": 3.98,
+      "orh": 13.26,
+      "orl": 12.78,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 14.81,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 13.06,
+      "vs_open": 13.39,
+      "is_green_since_open": true,
+      "shares_float": 394311632,
+      "market_cap": 6713036288,
+      "levels": {
+        "setup_type": "No clean setup",
+        "buy_area": [
+          14.29,
+          14.29
+        ],
+        "stop": 14.28,
+        "target_1": 14.31,
+        "target_2": 14.32,
+        "target_3": null,
+        "risk_reward": 1.0,
+        "explanation": "No clean setup: Conservative VWAP-based entry. Price $14.81 above VWAP $14.29. Limited to 1R/2R targets.",
+        "risk_flags": [
+          "overextended_atr",
+          "not_near_hod",
+          "extreme_gainer"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 69,
+        "entry_price": 14.29,
+        "stop_price": 14.28,
+        "risk_per_share": 0.01,
+        "total_risk": 1.0,
+        "max_risk_percent": 3.0,
+        "profit_t1": 1.0,
+        "profit_t2": 2.0,
+        "profit_t3": null,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.6942
+    },
+    {
+      "symbol": "WRBY",
+      "last": 27.26,
+      "vwap": 26.99,
+      "hod": 27.86,
+      "lod": 24.91,
+      "near_hod": 0.9785,
+      "volume_so_far": 4149164,
+      "atr_1m": 0.0379,
+      "pct_change": 10.1,
+      "rvol": 1.51,
+      "orh": 25.65,
+      "orl": 24.91,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 27.22,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 24.91,
+      "vs_open": 9.43,
+      "is_green_since_open": true,
+      "shares_float": 94603424,
+      "market_cap": 3364611072,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          27.22,
+          27.23
+        ],
+        "stop": 27.21,
+        "target_1": 27.24,
+        "target_2": 27.25,
+        "target_3": 27.87,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $27.22. Stop below pullback at $27.21. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 36,
+        "entry_price": 27.22,
+        "stop_price": 27.21,
+        "risk_per_share": 0.02,
+        "total_risk": 0.55,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.55,
+        "profit_t2": 1.09,
+        "profit_t3": 23.29,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.6658
+    },
+    {
+      "symbol": "HAFN",
+      "last": 9.65,
+      "vwap": 9.59,
+      "hod": 9.68,
+      "lod": 9.31,
+      "near_hod": 0.9964,
+      "volume_so_far": 4015245,
+      "atr_1m": 0.0079,
+      "pct_change": 5.64,
+      "rvol": 2.26,
+      "orh": 9.41,
+      "orl": 9.31,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 9.63,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 9.32,
+      "vs_open": 3.49,
+      "is_green_since_open": true,
+      "shares_float": 241594283,
+      "market_cap": 5163269120,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          9.41,
+          9.42
+        ],
+        "stop": 9.31,
+        "target_1": 9.52,
+        "target_2": 9.63,
+        "target_3": 9.68,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $9.41. Stop below VWAP/ORL at $9.31. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 106,
+        "entry_price": 9.42,
+        "stop_price": 9.31,
+        "risk_per_share": 0.11,
+        "total_risk": 11.28,
+        "max_risk_percent": 3.0,
+        "profit_t1": 11.28,
+        "profit_t2": 22.55,
+        "profit_t3": 28.44,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.6658
+    },
+    {
+      "symbol": "ABCL",
+      "last": 14.85,
+      "vwap": 14.58,
+      "hod": 15.0,
+      "lod": 14.1,
+      "near_hod": 0.99,
+      "volume_so_far": 7425933,
+      "atr_1m": 0.0345,
+      "pct_change": 6.52,
+      "rvol": 1.09,
+      "orh": 14.38,
+      "orl": 14.1,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 14.85,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 14.25,
+      "vs_open": 4.21,
+      "is_green_since_open": true,
+      "shares_float": 209038499,
+      "market_cap": 4812265472,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          14.38,
+          14.39
+        ],
+        "stop": 14.1,
+        "target_1": 14.67,
+        "target_2": 14.95,
+        "target_3": 15.1,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $14.38. Stop below VWAP/ORL at $14.10. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 69,
+        "entry_price": 14.38,
+        "stop_price": 14.1,
+        "risk_per_share": 0.29,
+        "total_risk": 19.73,
+        "max_risk_percent": 3.0,
+        "profit_t1": 19.73,
+        "profit_t2": 39.46,
+        "profit_t3": 49.32,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.62
+    },
+    {
+      "symbol": "MGNI",
+      "last": 25.7,
+      "vwap": 25.32,
+      "hod": 26.4,
+      "lod": 24.27,
+      "near_hod": 0.9735,
+      "volume_so_far": 2963090,
+      "atr_1m": 0.0501,
+      "pct_change": 9.32,
+      "rvol": 1.18,
+      "orh": 24.71,
+      "orl": 24.27,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 25.7,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 24.57,
+      "vs_open": 4.6,
+      "is_green_since_open": true,
+      "shares_float": 141639960,
+      "market_cap": 3686000896,
+      "levels": {
+        "setup_type": "First Pullback",
+        "buy_area": [
+          25.71,
+          25.72
+        ],
+        "stop": 25.69,
+        "target_1": 25.73,
+        "target_2": 25.75,
+        "target_3": 26.41,
+        "risk_reward": 1.0,
+        "explanation": "First Pullback: Trend continuation from pullback low $25.70. Stop below pullback at $25.69. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 38,
+        "entry_price": 25.71,
+        "stop_price": 25.69,
+        "risk_per_share": 0.02,
+        "total_risk": 0.76,
+        "max_risk_percent": 3.0,
+        "profit_t1": 0.76,
+        "profit_t2": 1.52,
+        "profit_t3": 26.7,
+        "daily_goal": 20.0,
+        "meets_daily_goal": false
+      },
+      "score": 0.5825
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "IOVA",
+      "score": 0.6942,
+      "pct_change": 34.44,
+      "rvol": 3.98,
+      "near_hod": 0.9683,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "WRBY",
+      "score": 0.6658,
+      "pct_change": 10.1,
+      "rvol": 1.51,
+      "near_hod": 0.9785,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "HAFN",
+      "score": 0.6658,
+      "pct_change": 5.64,
+      "rvol": 2.26,
+      "near_hod": 0.9964,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "ABCL",
+      "score": 0.62,
+      "pct_change": 6.52,
+      "rvol": 1.09,
+      "near_hod": 0.99,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "MGNI",
+      "score": 0.5825,
+      "pct_change": 9.32,
+      "rvol": 1.18,
+      "near_hod": 0.9735,
+      "above_vwap": true
+    },
+    {
+      "rank": 6,
+      "symbol": "TTAN",
+      "score": 0.5325,
+      "pct_change": 6.62,
+      "rvol": 1.05,
+      "near_hod": 0.9786,
+      "above_vwap": true
+    },
+    {
+      "rank": 7,
+      "symbol": "WING",
+      "score": 0.52,
+      "pct_change": 6.48,
+      "rvol": 0.96,
+      "near_hod": 0.9907,
+      "above_vwap": true
+    },
+    {
+      "rank": 8,
+      "symbol": "MOD",
+      "score": 0.4542,
+      "pct_change": 4.44,
+      "rvol": 0.98,
+      "near_hod": 0.984,
+      "above_vwap": true
+    },
+    {
+      "rank": 9,
+      "symbol": "KMX",
+      "score": 0.37,
+      "pct_change": 5.66,
+      "rvol": 3.73,
+      "near_hod": 0.9301,
+      "above_vwap": false
+    },
+    {
+      "rank": 10,
+      "symbol": "PATH",
+      "score": 0.2358,
+      "pct_change": 0.04,
+      "rvol": 0.43,
+      "near_hod": 0.9915,
+      "above_vwap": true
+    }
+  ]
+}

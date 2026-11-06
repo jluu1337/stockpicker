@@ -1,0 +1,389 @@
+{
+  "run_ts_ct": "2026-11-06 14:31:58 CT",
+  "provider": "yfinance",
+  "data_type": "delayed",
+  "version": "1.0.0",
+  "picks_count": 5,
+  "picks": [
+    {
+      "symbol": "FLY",
+      "last": 20.7,
+      "vwap": 19.26,
+      "hod": 20.75,
+      "lod": 16.31,
+      "near_hod": 0.9976,
+      "volume_so_far": 10208893,
+      "atr_1m": 0.067,
+      "pct_change": 36.54,
+      "rvol": 3.38,
+      "orh": 17.16,
+      "orl": 16.31,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 20.49,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 17.1,
+      "vs_open": 21.02,
+      "is_green_since_open": true,
+      "shares_float": 107066989,
+      "market_cap": 3465276160,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          17.16,
+          17.17
+        ],
+        "stop": 16.3,
+        "target_1": 18.03,
+        "target_2": 18.89,
+        "target_3": 20.78,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $17.16. Stop below VWAP/ORL at $16.30. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "extreme_gainer"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 34,
+        "entry_price": 17.17,
+        "stop_price": 16.3,
+        "risk_per_share": 0.86,
+        "total_risk": 29.3,
+        "max_risk_percent": 3.0,
+        "profit_t1": 29.3,
+        "profit_t2": 58.6,
+        "profit_t3": 123.03,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.872
+    },
+    {
+      "symbol": "INFQ",
+      "last": 9.06,
+      "vwap": 8.72,
+      "hod": 9.09,
+      "lod": 7.67,
+      "near_hod": 0.9967,
+      "volume_so_far": 21944282,
+      "atr_1m": 0.0209,
+      "pct_change": 24.72,
+      "rvol": 2.71,
+      "orh": 7.84,
+      "orl": 7.67,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 8.95,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 7.83,
+      "vs_open": 15.71,
+      "is_green_since_open": true,
+      "shares_float": 195598653,
+      "market_cap": 2040608256,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          7.84,
+          7.84
+        ],
+        "stop": 7.67,
+        "target_1": 8.01,
+        "target_2": 8.19,
+        "target_3": 9.1,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $7.84. Stop below VWAP/ORL at $7.67. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 127,
+        "entry_price": 7.84,
+        "stop_price": 7.67,
+        "risk_per_share": 0.17,
+        "total_risk": 21.93,
+        "max_risk_percent": 3.0,
+        "profit_t1": 21.93,
+        "profit_t2": 43.86,
+        "profit_t3": 159.88,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.798
+    },
+    {
+      "symbol": "IONQ",
+      "last": 32.3,
+      "vwap": 30.19,
+      "hod": 32.37,
+      "lod": 27.61,
+      "near_hod": 0.9978,
+      "volume_so_far": 56264583,
+      "atr_1m": 0.105,
+      "pct_change": 19.76,
+      "rvol": 2.56,
+      "orh": 28.71,
+      "orl": 27.61,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 32.08,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 28.01,
+      "vs_open": 15.32,
+      "is_green_since_open": true,
+      "shares_float": 429491633,
+      "market_cap": 13874162688,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          28.71,
+          28.73
+        ],
+        "stop": 27.6,
+        "target_1": 29.84,
+        "target_2": 30.95,
+        "target_3": 32.42,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $28.71. Stop below VWAP/ORL at $27.60. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 26,
+        "entry_price": 28.72,
+        "stop_price": 27.6,
+        "risk_per_share": 1.12,
+        "total_risk": 29.08,
+        "max_risk_percent": 3.0,
+        "profit_t1": 29.08,
+        "profit_t2": 58.16,
+        "profit_t3": 96.32,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.78
+    },
+    {
+      "symbol": "KRMN",
+      "last": 44.11,
+      "vwap": 40.46,
+      "hod": 44.22,
+      "lod": 34.18,
+      "near_hod": 0.9975,
+      "volume_so_far": 7539609,
+      "atr_1m": 0.0999,
+      "pct_change": 30.89,
+      "rvol": 2.28,
+      "orh": 36.5,
+      "orl": 34.26,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 43.73,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 36.0,
+      "vs_open": 22.53,
+      "is_green_since_open": true,
+      "shares_float": 102639405,
+      "market_cap": 5846062080,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          36.5,
+          36.51
+        ],
+        "stop": 34.25,
+        "target_1": 38.76,
+        "target_2": 41.02,
+        "target_3": 44.27,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $36.50. Stop below VWAP/ORL at $34.25. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "extreme_gainer"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 13,
+        "entry_price": 36.51,
+        "stop_price": 34.25,
+        "risk_per_share": 2.26,
+        "total_risk": 29.35,
+        "max_risk_percent": 3.0,
+        "profit_t1": 29.35,
+        "profit_t2": 58.69,
+        "profit_t3": 100.91,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.672
+    },
+    {
+      "symbol": "COHR",
+      "last": 194.57,
+      "vwap": 191.79,
+      "hod": 195.67,
+      "lod": 179.04,
+      "near_hod": 0.9944,
+      "volume_so_far": 24573460,
+      "atr_1m": 0.3961,
+      "pct_change": 16.6,
+      "rvol": 3.29,
+      "orh": 190.4,
+      "orl": 179.04,
+      "above_vwap": true,
+      "vwap_cross": false,
+      "pullback_low": 194.56,
+      "source": "day_gainers",
+      "type_unknown": false,
+      "is_etf": false,
+      "is_otc": false,
+      "open_price": 189.76,
+      "vs_open": 2.53,
+      "is_green_since_open": true,
+      "shares_float": 196159017,
+      "market_cap": 38316339200,
+      "levels": {
+        "setup_type": "ORB Breakout",
+        "buy_area": [
+          190.4,
+          190.46
+        ],
+        "stop": 179.0,
+        "target_1": 201.85,
+        "target_2": 213.28,
+        "target_3": 218.99,
+        "risk_reward": 1.0,
+        "explanation": "ORB Breakout: Price broke above Opening Range High $190.40. Stop below VWAP/ORL at $179.00. Targeting 1R/2R/HOD extension.",
+        "risk_flags": [
+          "overextended_atr",
+          "large_cap"
+        ]
+      },
+      "position": {
+        "capital": 1000.0,
+        "shares": 2,
+        "entry_price": 190.43,
+        "stop_price": 179.0,
+        "risk_per_share": 11.43,
+        "total_risk": 22.85,
+        "max_risk_percent": 3.0,
+        "profit_t1": 22.85,
+        "profit_t2": 45.71,
+        "profit_t3": 57.13,
+        "daily_goal": 20.0,
+        "meets_daily_goal": true
+      },
+      "score": 0.66
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "symbol": "FLY",
+      "score": 0.872,
+      "pct_change": 36.54,
+      "rvol": 3.38,
+      "near_hod": 0.9976,
+      "above_vwap": true
+    },
+    {
+      "rank": 2,
+      "symbol": "INFQ",
+      "score": 0.798,
+      "pct_change": 24.72,
+      "rvol": 2.71,
+      "near_hod": 0.9967,
+      "above_vwap": true
+    },
+    {
+      "rank": 3,
+      "symbol": "IONQ",
+      "score": 0.78,
+      "pct_change": 19.76,
+      "rvol": 2.56,
+      "near_hod": 0.9978,
+      "above_vwap": true
+    },
+    {
+      "rank": 4,
+      "symbol": "KRMN",
+      "score": 0.672,
+      "pct_change": 30.89,
+      "rvol": 2.28,
+      "near_hod": 0.9975,
+      "above_vwap": true
+    },
+    {
+      "rank": 5,
+      "symbol": "COHR",
+      "score": 0.66,
+      "pct_change": 16.6,
+      "rvol": 3.29,
+      "near_hod": 0.9944,
+      "above_vwap": true
+    },
+    {
+      "rank": 6,
+      "symbol": "LEU",
+      "score": 0.61,
+      "pct_change": 22.9,
+      "rvol": 2.44,
+      "near_hod": 0.9885,
+      "above_vwap": true
+    },
+    {
+      "rank": 7,
+      "symbol": "DKNG",
+      "score": 0.61,
+      "pct_change": 5.06,
+      "rvol": 6.11,
+      "near_hod": 0.9991,
+      "above_vwap": true
+    },
+    {
+      "rank": 8,
+      "symbol": "PPTA",
+      "score": 0.596,
+      "pct_change": 18.91,
+      "rvol": 1.76,
+      "near_hod": 0.9944,
+      "above_vwap": true
+    },
+    {
+      "rank": 9,
+      "symbol": "OKLO",
+      "score": 0.582,
+      "pct_change": 23.17,
+      "rvol": 2.41,
+      "near_hod": 0.9846,
+      "above_vwap": true
+    },
+    {
+      "rank": 10,
+      "symbol": "XERS",
+      "score": 0.58,
+      "pct_change": 15.76,
+      "rvol": 2.3,
+      "near_hod": 0.9997,
+      "above_vwap": true
+    }
+  ]
+}
